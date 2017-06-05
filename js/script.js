@@ -30,11 +30,12 @@ $("document").ready(function() {
         $('#bots-portal .link_bg').addClass('active');
     });
     // go to index-billing.html
-    $("#index-billing").on("click", function() {
-        window.location.href = 'index-billing.html';
+    $("#gotobilling-portal").on("click", function() {
+        $("#modal").load("/portal/gotobilling-portal.html");
     });
-
-
+    $("#gotobilling-go").on("click", function() {
+        window.location.href = 'index-billing.html'
+    });
 
     //billing menu buttons
     $("#home-billing").on("click", function() {
@@ -57,10 +58,15 @@ $("document").ready(function() {
         $("#page-content").load("/billing/makeadmin-billing.html");
         $('#makeadmin-billing .link_bg').addClass('active');
     });
-    // go to index-billing.html
-    $("#index-portal").on("click", function() {
-        window.location.href = 'index-portal.html';
+    // go to index-portal.html
+    $("#gotoportal-billing").on("click", function() {
+        $("#modal").load("/billing/gotoportal-billing.html");
     });
-
-
+    $("#gotoportal-go").on("click", function() {
+        window.location.href = 'index-portal.html'
+    });
+    //cancel-btn
+    $(".cancel").on("click", function() {
+        $("#modal").load("");
+    });
 });

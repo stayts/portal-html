@@ -1,0 +1,43 @@
+<div class="modal">
+    <div class="modal-box">
+        <div class="box">
+            <div>
+                <div class="content-of-box">
+                    <i class="material-icons big grey">
+                    group_work
+                </i>
+                    <div>Account Manager</div>
+                </div>
+            </div>
+            <div>
+                <div class="content-of-box">
+                    <i class="material-icons big grey">
+                    group_work
+                </i>
+                    <div>Admin Portal</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <button id="gotoportal-go">
+                Switch
+            </button>
+            <button class="cancel">
+                Cancel
+            </button>
+        </div>
+        <i class="material-icons abs-arrow">trending_flat</i>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function($) {
+        $("#gotoportal-go").on("click", function() {
+            window.location.href = 'index-portal.html'
+        });
+        //cancel-btn
+        $(".cancel").on("click", function() {
+            $("#modal").load("");
+        });
+    });
+</script>

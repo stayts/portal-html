@@ -1,0 +1,46 @@
+<div class="modal">
+    <div class="modal-box">
+        <div class="box">
+            <div>
+                <div class="content-of-box">
+                    <i class="material-icons big grey">
+                    group_work
+                </i>
+                    <div>Admin Portal</div>
+                </div>
+            </div>
+            <div>
+                <div class="content-of-box">
+                    <i class="material-icons big grey">
+                    group_work
+                </i>
+                    <div>Account Manager</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="box">
+            <button id="gotobilling-go">
+                Switch
+            </button>
+            <button class="cancel">
+                Cancel
+            </button>
+        </div>
+        <i class="material-icons abs-arrow">trending_flat</i>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function($) {
+        $("#gotobilling-go").on("click", function() {
+            alert(
+                "WOW"
+            );
+            window.location.href = 'index-billing.html'
+        });
+        //cancel-btn
+        $(".cancel").on("click", function() {
+            $("#modal").load("");
+        });
+    });
+</script>
