@@ -1,0 +1,42 @@
+@import (reference) "common.less";
+//menu
+.slider-menu {
+    -webkit-transition: width .2s;
+    transition: width .2s;
+}
+
+.menu {
+    width: 50px;
+    background: @grey;
+    flex-shrink: 0;
+    * {
+        cursor: pointer
+    }
+    &.open {
+        width: 200px;
+        span {
+            display: initial !important;
+        }
+    }
+}
+
+.opennav {
+    display: flex;
+    justify-content: flex-end;
+    color: @grey-d;
+    padding: 10px;
+}
+
+.menu-button {
+    position: relative;
+    height: 60px;
+    &:hover {
+        width: 200px;
+        .link_bg {
+            .zero5;
+            background: @gold;
+        }
+    }
+}
+
+@import "trial.less";

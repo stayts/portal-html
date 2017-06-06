@@ -1,0 +1,35 @@
+@import (reference) "common.less";
+.trial-text {
+    align-items: flex-end;
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: center;
+    color: @red;
+    &:hover {
+        span {
+            display: none
+        }
+    }
+}
+
+.trial-buy {
+    background: @red;
+    color: white;
+    border: 3px solid #dddddd;
+    box-sizing: border-box;
+    justify-content: center;
+    &:hover {
+        span {
+            display: none
+        }
+    }
+}
+
+.menu-button {
+    &.trial-mode {
+        height: 40px;
+        &:hover {
+            width: initial
+        }
+    }
+}

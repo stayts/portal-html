@@ -46,45 +46,6 @@ a {
   transition: all 0.5s ease-in-out;
   animation: 0.1s ease-out 0s 0.1s slideInFromLeft;
 }
-.slider-menu {
-  -webkit-transition: width .2s;
-  transition: width .2s;
-}
-.menu {
-  width: 50px;
-  background: #dddddd;
-  flex-shrink: 0;
-}
-.menu * {
-  cursor: pointer;
-}
-.menu.open {
-  width: 200px;
-}
-.menu.open span {
-  visibility: visible;
-}
-.opennav {
-  display: flex;
-  justify-content: flex-end;
-  color: #9499aa;
-  padding: 10px;
-}
-.menu-button {
-  position: relative;
-  height: 60px;
-}
-.menu-button:hover {
-  width: 200px;
-}
-.menu-button:hover .link_bg {
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  background: #f9b800;
-}
 button {
   background: #26b6cc;
   border: 1px solid #3a435c;
@@ -128,10 +89,10 @@ button.active {
   flex-shrink: 0;
 }
 .link_title span {
-  visibility: hidden;
+  display: none;
 }
 .link_title:hover span {
-  visibility: visible;
+  display: initial;
 }
 .bottom-menu {
   position: absolute;
@@ -373,4 +334,69 @@ table.payment-info .visa-info {
   -ms-transform: skew(15deg) rotate(6deg);
   -o-transform: skew(15deg) rotate(6deg);
   transform: skew(15deg) rotate(6deg);
+}
+.slider-menu {
+  -webkit-transition: width .2s;
+  transition: width .2s;
+}
+.menu {
+  width: 50px;
+  background: #dddddd;
+  flex-shrink: 0;
+}
+.menu * {
+  cursor: pointer;
+}
+.menu.open {
+  width: 200px;
+}
+.menu.open span {
+  display: initial !important;
+}
+.opennav {
+  display: flex;
+  justify-content: flex-end;
+  color: #9499aa;
+  padding: 10px;
+}
+.menu-button {
+  position: relative;
+  height: 60px;
+}
+.menu-button:hover {
+  width: 200px;
+}
+.menu-button:hover .link_bg {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background: #f9b800;
+}
+.trial-text {
+  align-items: flex-end;
+  font-size: 14px;
+  font-weight: bold;
+  justify-content: center;
+  color: #e32048;
+}
+.trial-text:hover span {
+  display: none;
+}
+.trial-buy {
+  background: #e32048;
+  color: white;
+  border: 3px solid #dddddd;
+  box-sizing: border-box;
+  justify-content: center;
+}
+.trial-buy:hover span {
+  display: none;
+}
+.menu-button.trial-mode {
+  height: 40px;
+}
+.menu-button.trial-mode:hover {
+  width: initial;
 }
