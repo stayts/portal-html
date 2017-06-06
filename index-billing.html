@@ -10,19 +10,19 @@
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <style>
     /*separate styling for billing (just to make it different)*/
-
+        
         .menu {
             background: #747988;
         }
-
-        .link_title {
+        
+        .link-content {
             color: white;
-            text-shadow: 0 0 2px black;
+            text-shadow: 0 0 1px black;
         }
-
-        .menu-button:hover .link_bg,
-        .link_bg.active {
-            background: #e32048;
+        
+        .menu-button:hover,
+        .menu-button.active {
+            background: #0483bc;
         }
     }
     .opennav {
@@ -37,6 +37,7 @@
             <div class="menu">
                 <div class="opennav material-icons">arrow_forward</div>
                 <ul class="slider-menu" w3-include-html="billing/menu-billing.html"></ul>
+                <ul class="slider-menu" w3-include-html="/trial.html"></ul>
                 <ul class="bottom-menu" w3-include-html="/help/helpmenu.html"></ul>
             </div>
             <div class="page" id="page-content" w3-include-html="billing/home-billing.html">

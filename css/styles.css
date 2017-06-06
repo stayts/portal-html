@@ -62,16 +62,7 @@ button.active {
   background: #f9b800;
   color: #151f36;
 }
-.link_bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 2;
-}
-.link_bg.active {
-  background: #f9b800;
-}
-.link_title {
+.link-content {
   position: absolute;
   font-family: 'Roboto Slab', serif;
   width: 100%;
@@ -81,17 +72,17 @@ button.active {
   display: flex;
   align-items: center;
 }
-.link_title .material-icons {
+.link-content .material-icons {
   width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.link_title span {
+.link-content span {
   display: none;
 }
-.link_title:hover span {
+.link-content:hover span {
   display: initial;
 }
 .bottom-menu {
@@ -363,16 +354,19 @@ table.payment-info .visa-info {
   position: relative;
   height: 60px;
 }
-.menu-button:hover {
+.menu-button:hover,
+.menu-button.active {
   width: 200px;
-}
-.menu-button:hover .link_bg {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   background: #f9b800;
+}
+.link-title {
+  display: flex;
+  flex-direction: column;
 }
 .trial-text {
   align-items: flex-end;

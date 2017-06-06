@@ -30,13 +30,17 @@
 .menu-button {
     position: relative;
     height: 60px;
-    &:hover {
+    &:hover,
+    &.active {
         width: 200px;
-        .link_bg {
-            .zero5;
-            background: @gold;
-        }
+        .zero5;
+        background: @gold;
     }
+}
+
+.link-title {
+    display: flex;
+    flex-direction: column
 }
 
 @import "trial.less";
