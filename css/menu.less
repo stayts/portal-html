@@ -1,3 +1,4 @@
+// out: null
 @import (reference) "common.less";
 //menu
 .slider-menu {
@@ -9,13 +10,11 @@
     width: 50px;
     background: @grey;
     flex-shrink: 0;
-    * {
-        cursor: pointer
-    }
+    span {    white-space: nowrap;}
     &.open {
         width: 200px;
         span {
-            display: initial !important;
+            display: initial;
         }
     }
 }
@@ -29,18 +28,54 @@
 
 .menu-button {
     position: relative;
+    cursor: pointer;
     height: 60px;
     &:hover,
     &.active {
-        width: 200px;
         .zero5;
         background: @gold;
     }
+    &:hover{width: 200px;}
 }
 
 .link-title {
     display: flex;
     flex-direction: column
 }
+.link-content {
+    .material-icons {
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    position: absolute;
+    font-family: 'Roboto Slab',
+    serif;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    color: @blue-d;
+    display: flex;
+    align-items: center;
+    span {
+        display: none;
+    }
+    &:hover {
+        span {
+            display: initial;
+        }
+    }
+}
+.menu-subtitle {
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    span {
+        margin: 0 4px 0 0;
+    }
+}
 
-@import "trial.less";
+@import  "trial.less";
+@import  "bottom-menu.less";

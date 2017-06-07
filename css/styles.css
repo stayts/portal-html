@@ -17,6 +17,21 @@
 a {
   color: #1074c3;
 }
+.grey {
+  color: #dddddd;
+}
+.sky {
+  color: #26b6cc;
+}
+.grey-d {
+  color: #9499aa;
+}
+.red {
+  color: #e32048;
+}
+.gold-d {
+  color: #cc9500;
+}
 #container {
   margin: 0 auto;
   max-width: 1000px;
@@ -45,53 +60,6 @@ a {
   -ms-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   animation: 0.1s ease-out 0s 0.1s slideInFromLeft;
-}
-button {
-  background: #26b6cc;
-  border: 1px solid #3a435c;
-  padding: 5px 10px;
-  font-size: 16px;
-  white-space: nowrap;
-  word-wrap: initial;
-  width: 120px;
-  color: white;
-  font-family: 'Roboto Slab';
-}
-button:hover,
-button.active {
-  background: #f9b800;
-  color: #151f36;
-}
-.link-content {
-  position: absolute;
-  font-family: 'Roboto Slab', serif;
-  width: 100%;
-  height: 100%;
-  z-index: 1000;
-  color: #151f36;
-  display: flex;
-  align-items: center;
-}
-.link-content .material-icons {
-  width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.link-content span {
-  display: none;
-}
-.link-content:hover span {
-  display: initial;
-}
-.bottom-menu {
-  position: absolute;
-  width: inherit%;
-  bottom: 0;
-}
-.bottom-menu .menu-button {
-  height: 40px;
 }
 a {
   text-decoration: none;
@@ -210,6 +178,125 @@ table.payment-info .visa-info {
   font-weight: bold;
   font-size: 16px;
 }
+.slider-menu {
+  -webkit-transition: width .2s;
+  transition: width .2s;
+}
+.menu {
+  width: 50px;
+  background: #dddddd;
+  flex-shrink: 0;
+}
+.menu span {
+  white-space: nowrap;
+}
+.menu.open {
+  width: 200px;
+}
+.menu.open span {
+  display: initial;
+}
+.opennav {
+  display: flex;
+  justify-content: flex-end;
+  color: #9499aa;
+  padding: 10px;
+}
+.menu-button {
+  position: relative;
+  cursor: pointer;
+  height: 60px;
+}
+.menu-button:hover,
+.menu-button.active {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background: #f9b800;
+}
+.menu-button:hover {
+  width: 200px;
+}
+.link-title {
+  display: flex;
+  flex-direction: column;
+}
+.link-content {
+  position: absolute;
+  font-family: 'Roboto Slab', serif;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  color: #151f36;
+  display: flex;
+  align-items: center;
+}
+.link-content .material-icons {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.link-content span {
+  display: none;
+}
+.link-content:hover span {
+  display: initial;
+}
+.menu-subtitle {
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+}
+.menu-subtitle span {
+  margin: 0 4px 0 0;
+}
+.trial-text {
+  align-items: flex-end;
+  font-size: 14px;
+  font-weight: bold;
+  justify-content: center;
+  color: #e32048;
+}
+.trial-text:hover span {
+  display: none;
+}
+.trial-buy {
+  background: #e32048;
+  color: white;
+  border: 3px solid #dddddd;
+  box-sizing: border-box;
+  justify-content: center;
+}
+.trial-buy:hover {
+  background: #f9b800;
+  color: #3a435c;
+  text-shadow: none;
+}
+.trial-buy:hover span {
+  display: none;
+}
+.menu-button.trial-mode {
+  height: 40px;
+}
+.menu-button.trial-mode:hover {
+  width: initial;
+  background: initial;
+}
+.menu-button#trial {
+  cursor: default;
+}
+.bottom-menu {
+  position: absolute;
+  width: inherit%;
+  bottom: 0;
+}
+.bottom-menu .menu-button {
+  height: 40px;
+}
 .modal {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -223,20 +310,16 @@ table.payment-info .visa-info {
   right: 0;
   left: 0;
 }
-.modal-box {
-  width: 380px;
-  height: 250px;
+.modal .modal-box {
   background: #dddddd;
   border: 1px solid #9499aa;
+  width: 400px;
+  height: 320px;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 200px;
   position: relative;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
-.content-of-box {
+.modal .content-of-box {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -244,47 +327,29 @@ table.payment-info .visa-info {
   height: 100%;
   color: #dddddd;
 }
-.abs-arrow {
-  color: #e32048;
+.modal .content-of-box img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 6px;
+}
+.modal .abs-arrow {
+  color: #747988;
   position: absolute;
   z-index: 1000;
   font-size: 77px;
-  top: 22px;
-  align-self: center;
-  line-height: 150px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  line-height: 156px;
 }
-.big {
-  font-size: 100px;
-}
-.grey {
-  color: #dddddd;
-}
-.sky {
-  color: #26b6cc;
-}
-.grey-d {
-  color: #9499aa;
-}
-.red {
-  color: #e32048;
-}
-.gold-d {
-  color: #cc9500;
-}
-.menu-subtitle {
-  font-weight: bold;
-  font-size: 16px;
-  display: block;
-}
-.menu-subtitle span {
-  margin: 0 4px 0 0;
-}
-.box {
+.modal .box {
   position: relative;
   z-index: 1;
   text-align: center;
+  margin: 10px auto;
 }
-.box > div {
+.modal .box .curled {
   position: relative;
   width: 150px;
   display: inline-block;
@@ -296,8 +361,8 @@ table.payment-info .visa-info {
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
 }
-.box > div:before,
-.box > div:after {
+.modal .box .curled:before,
+.modal .box .curled:after {
   content: '';
   z-index: -1;
   position: absolute;
@@ -317,7 +382,7 @@ table.payment-info .visa-info {
   -o-transform: skew(-15deg) rotate(-6deg);
   transform: skew(-15deg) rotate(-6deg);
 }
-.box > div:after {
+.modal .box .curled:after {
   left: auto;
   right: 10px;
   -webkit-transform: skew(15deg) rotate(6deg);
@@ -326,71 +391,22 @@ table.payment-info .visa-info {
   -o-transform: skew(15deg) rotate(6deg);
   transform: skew(15deg) rotate(6deg);
 }
-.slider-menu {
-  -webkit-transition: width .2s;
-  transition: width .2s;
-}
-.menu {
-  width: 50px;
-  background: #dddddd;
-  flex-shrink: 0;
-}
-.menu * {
-  cursor: pointer;
-}
-.menu.open {
-  width: 200px;
-}
-.menu.open span {
-  display: initial !important;
-}
-.opennav {
-  display: flex;
-  justify-content: flex-end;
-  color: #9499aa;
-  padding: 10px;
-}
-.menu-button {
-  position: relative;
-  height: 60px;
-}
-.menu-button:hover,
-.menu-button.active {
-  width: 200px;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  background: #f9b800;
-}
-.link-title {
-  display: flex;
-  flex-direction: column;
-}
-.trial-text {
-  align-items: flex-end;
-  font-size: 14px;
-  font-weight: bold;
-  justify-content: center;
-  color: #e32048;
-}
-.trial-text:hover span {
-  display: none;
-}
-.trial-buy {
-  background: #e32048;
+.modal button {
+  background: #3a435c;
+  border: none;
+  padding: 5px 10px;
+  font-size: 18px;
+  white-space: nowrap;
+  word-wrap: initial;
+  width: 120px;
   color: white;
-  border: 3px solid #dddddd;
-  box-sizing: border-box;
-  justify-content: center;
-}
-.trial-buy:hover span {
-  display: none;
-}
-.menu-button.trial-mode {
+  font-family: 'Roboto Slab';
   height: 40px;
+  margin: 9px auto;
+  display: block;
 }
-.menu-button.trial-mode:hover {
-  width: initial;
+.modal button:hover,
+.modal button.active {
+  background: #e32048;
+  color: #151f36;
 }
