@@ -178,45 +178,6 @@ table.payment-info .visa-info {
   font-weight: bold;
   font-size: 16px;
 }
-td.active-user:before,
-td.admin-user:before,
-td.super-user:before {
-  content: "\00a0";
-  width: 20px;
-  height: 20px;
-  border: 1px solid #3a435c;
-  display: block;
-  margin: auto;
-  border-radius: 50%;
-}
-td.active-user:active,
-td.admin-user:active,
-td.super-user:active {
-  background: #9499aa;
-}
-.sorting-table .active {
-  background: #dddddd;
-}
-.sorting-table th.active-user,
-.sorting-table th.admin-user,
-.sorting-table th.super-user {
-  text-align: center !important;
-}
-.sorting-table td.active-user.on:before {
-  background: #e32048;
-}
-.sorting-table td.admin-user.on:before {
-  background: #f9b800;
-}
-.sorting-table td.super-user.on:before {
-  background: #26b6cc;
-}
-.searchbox {
-  height: 30px;
-  width: 200px;
-  padding: 0 5px;
-  font-size: 14px;
-}
 .slider-menu {
   -webkit-transition: width .2s;
   transition: width .2s;
@@ -449,4 +410,43 @@ td.super-user:active {
 .modal button.active {
   background: #e32048;
   color: #151f36;
+}
+.sorting-table td.active-user:before,
+.sorting-table td.admin-user:before,
+.sorting-table td.super-user:before {
+  content: "\00a0";
+  width: 20px;
+  height: 20px;
+  border: 1px solid #3a435c;
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+}
+.sorting-table td.active-user:active,
+.sorting-table td.admin-user:active,
+.sorting-table td.super-user:active {
+  background: #9499aa;
+}
+.sorting-table .active {
+  background: #dddddd;
+}
+.sorting-table th.active-user,
+.sorting-table th.admin-user,
+.sorting-table th.super-user {
+  text-align: center !important;
+}
+.sorting-table td.active-user.on:before {
+  background: #e32048;
+}
+.sorting-table td.admin-user.on:before {
+  background: #f9b800;
+}
+.sorting-table td.super-user.on:before {
+  background: #26b6cc;
+}
+.searchbox {
+  height: 30px;
+  width: 200px;
+  padding: 0 5px;
+  font-size: 14px;
 }

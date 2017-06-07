@@ -158,63 +158,6 @@ table&.payment-info {
     font-size: 16px;
 }
 
-td {
-    &.active-user,
-    &.admin-user,
-    &.super-user {
-        &:before {
-            content: "\00a0";
-            width: 20px;
-            height: 20px;
-            border: 1px solid @blue;
-            display: block;
-            margin: auto;
-            border-radius: 50%;
-        }
-        &:active {
-            background: @grey-d;
-        }
-    }
-}
-
-//users
-.sorting-table {
-    .active {
-        background: @grey;
-    }
-    th {
-        &.active-user,
-        &.admin-user,
-        &.super-user {
-            text-align: center !important;
-        }
-    }
-    td {
-        &.active-user.on {
-            &:before {
-                background: @red;
-            }
-        }
-        &.admin-user.on {
-            &:before {
-                background: @gold;
-            }
-        }
-        &.super-user.on {
-            &:before {
-                background: @sky;
-            }
-        }
-    }
-}
-
-//searchbox
-.searchbox {
-    height: 30px;
-    width: 200px;
-    padding: 0 5px;
-    font-size: 14px;
-}
-
 @import "menu.less";
 @import "modal.less";
+@import "users.less";
