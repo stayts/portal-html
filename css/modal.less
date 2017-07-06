@@ -2,6 +2,20 @@
 @import (reference) "common.less";
 //modal
 .modal {
+    .close {
+        position: absolute;
+        right: 0;
+        margin: 4px;
+        color: #aa0000;
+        font-size: 33px;
+        margin: 4px;
+        margin: 4px;
+        &:hover {
+            background: #aa0000;
+            color: white;
+            border-radius: 50%
+        }
+    }
     .zero5;
     z-index: 1000;
     position: absolute;
@@ -10,112 +24,127 @@
     bottom: 0;
     right: 0;
     left: 0;
-
-
-.modal-box {
-
-    background: @grey;
-    border: 1px solid @grey-d;
-    width: 400px;
-    height: 320px;
-    margin: auto;
-    margin-top: 200px;
-    position: relative;
-}
-
-.content-of-box {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    color: @grey;
-    img {
-        width: 100px;
-    height: 100px;
-    margin-bottom: 6px;}
-}
-
-//arrow between the curled pages
-.abs-arrow {
-    color: #747988;
-    position: absolute;
-    z-index: 1000;
-    font-size: 77px;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    line-height: 156px;
-}
-
-//pagecurl
-.box {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    margin: 10px auto;
-    .curled {
+    .modal-box {
+        background: @grey;
+        border: 1px solid @grey-d;
+        width: 400px;
+        height: 320px;
+        margin: auto;
+        margin-top: 200px;
         position: relative;
-        width: 150px;
-        display: inline-block;
-        height: 150px;
-        border: 1px solid #efefef;
-        margin: 10px;
-        background: #fff;
-        -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
-        -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
-        &:before,
-        &:after {
-            content: '';
-            z-index: -1;
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            width: 70%;
-            max-width: 300px;
-            /* avoid rotation causing ugly appearance at large container widths */
-            max-height: 100px;
-            height: 55%;
-            -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            -moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            -webkit-transform: skew(-15deg) rotate(-6deg);
-            -moz-transform: skew(-15deg) rotate(-6deg);
-            -ms-transform: skew(-15deg) rotate(-6deg);
-            -o-transform: skew(-15deg) rotate(-6deg);
-            transform: skew(-15deg) rotate(-6deg);
-        }
-        &:after {
-            left: auto;
-            right: 10px;
-            -webkit-transform: skew(15deg) rotate(6deg);
-            -moz-transform: skew(15deg) rotate(6deg);
-            -ms-transform: skew(15deg) rotate(6deg);
-            -o-transform: skew(15deg) rotate(6deg);
-            transform: skew(15deg) rotate(6deg);
+        &.subscribe {
+            background: @grey;
+            border: 1px solid @grey-d;
+            width: 90%;
+            min-width: 900px;
+            max-width: 1000px;
+            height: 600px;
+            margin-top: 0;
+            margin: auto;
         }
     }
-}
-
-button {
-    background: @blue;
-    border: none;
-    padding: 5px 10px;
-    font-size: 18px;
-    white-space: nowrap;
-    word-wrap: initial;
-    width: 120px;
-    color: white;
-    font-family: 'Roboto Slab';
-    height: 40px;
-    margin: 9px auto;
-    display: block;
-    &:hover,
-    &.active {
-        background: @red;
-        color: @blue-d;
+    .content-of-box {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        color: @grey;
+        img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 6px;
+        }
     }
-}
+    //arrow between the curled pages
+    .abs-arrow {
+        color: #747988;
+        position: absolute;
+        z-index: 1000;
+        font-size: 77px;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        line-height: 156px;
+    }
+    //pagecurl
+    .box {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        margin: auto;
+        .curled {
+            position: relative;
+            width: 150px;
+            display: inline-block;
+            height: 150px;
+            border: 1px solid #efefef;
+            margin: 10px;
+            background: #fff;
+            -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+            -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+            &:before,
+            &:after {
+                content: '';
+                z-index: -1;
+                position: absolute;
+                left: 10px;
+                bottom: 10px;
+                width: 70%;
+                max-width: 300px;
+                /* avoid rotation causing ugly appearance at large container widths */
+                max-height: 100px;
+                height: 55%;
+                -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+                -moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+                -webkit-transform: skew(-15deg) rotate(-6deg);
+                -moz-transform: skew(-15deg) rotate(-6deg);
+                -ms-transform: skew(-15deg) rotate(-6deg);
+                -o-transform: skew(-15deg) rotate(-6deg);
+                transform: skew(-15deg) rotate(-6deg);
+            }
+            &:after {
+                left: auto;
+                right: 10px;
+                -webkit-transform: skew(15deg) rotate(6deg);
+                -moz-transform: skew(15deg) rotate(6deg);
+                -ms-transform: skew(15deg) rotate(6deg);
+                -o-transform: skew(15deg) rotate(6deg);
+                transform: skew(15deg) rotate(6deg);
+            }
+        }
+    }
+    //button
+    button {
+        background: #006676;
+        border: none;
+        padding: 5px 10px;
+        font-size: 16px;
+        white-space: nowrap;
+        word-wrap: initial;
+        width: 100%;
+        color: white;
+        font-family: 'Roboto Slab';
+        margin: auto;
+        display: block;
+        &:hover,
+        &.active {
+            background: @red;
+            color: @blue-d;
+        }
+    }
+    .done {
+        button {
+            height: 30px;
+            font-size: 14px;
+            font-weight: normal;
+            background: #eee;
+            color: #006676;
+            border: 1px solid #006676;
+            margin-top: 9px;
+        }
+    }
 }

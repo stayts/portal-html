@@ -1,0 +1,342 @@
+<div class="modal">
+
+    <div class="editable-subscribe">
+        <div class="close material-icons" id="closenew-sub">close</div>
+        <div class="h1">
+            <div class="title">My Subscription</div>
+        </div>
+        <div class="step one">
+            <div class="cust-details">
+                <div class="h2">
+                    <div class="title">Details</div>
+                </div>
+                <div class="detail-values">
+                    <div class="users item">
+                        <div class="left">Number of seats</div>
+                        <div class="right textedit">1000</div>
+                        <div class="help-line">Enter the number of seats required. </div>
+                    </div>
+                    <div class="length item">
+                        <div class="left">Contract Length</div>
+                        <div class="right">
+                            <legend class="select">
+                                <div class="input-field">1 year contract</div>
+                                <div class="arrow-up">▼</div>
+                            </legend>
+                            <div class="select-list">
+                                <div class="data" tabindex="0">
+                                    1 year contract
+                                </div>
+                                <div class="data" tabindex="0">
+                                    6 months contract
+                                </div>
+                            </div>
+                        </div>
+                        <div class="help-line">Choose the length of the contract </div>
+
+                    </div>
+                    <div class="type item ">
+                        <div class="left">Billing Period</div>
+                        <div class="right">
+                            <legend class="select">
+                                <div class="input-field">Annualy</div>
+                                <div class="arrow-up">▼</div>
+                            </legend>
+                            <div class="select-list">
+                                <div class="data" tabindex="0">
+                                    Quaterly
+                                </div>
+                                <div class="data" tabindex="0">
+                                    Annualy
+                                </div>
+                            </div>
+                        </div>
+                        <div class="help-line">Choose how often would you like us to bill you </div>
+                    </div>
+
+                </div>
+
+                <div class="detail-total">
+                    <div class="item  bill">
+                        <div class="left">Bill Payment (quarterly billing)</div>
+                        <div class="right textnonedit">$1000</div>
+
+                    </div>
+                    <div class="item  usercost">
+                        <div class="left">Cost per each user</div>
+                        <div class="right textnonedit">$2,45</div>
+                    </div>
+                    <div class="item taxed">
+                        <div class="left">Due today including taxes</div>
+                        <div class="right textnonedit">$1000</div>
+                    </div>
+                    <button id="next-1" class=" next">Enter Customer Info</button>
+                    <button id="edit-details" class="gold">Edit Details</button>
+                </div>
+                <button id="calculate" class="active">Calculate the price</button>
+            </div>
+        </div>
+        <div class="step two">
+            <div class="cust-info">
+                <div class="h2">
+                    <div class="title">Customer Info</div>
+                </div>
+                <div class="address-list">
+                    <div class="help-line" id="required">Required fields </div>
+                    <div class="name item">
+                        <div class="left">First Name</div>
+                        <div class="right textedit">Jonathan</div>
+                        <div class="left">Last Name</div>
+                        <div class="right textedit">Simpson</div>
+                    </div>
+                    <div class="address item ">
+                        <div class="left">Address line 1 </div>
+                        <div class="right textedit">Old Quarry Lane South</div>
+                        <div class="left">Address line 2</div>
+                        <div class="right textedit">Building 18, Cupboard under the stairs</div>
+                    </div>
+                    <div class="zip item ">
+                        <div class="left">ZIP / Postal code / postcode</div>
+                        <div class="right textedit">123456789</div>
+
+                        <div class="left">City / town</div>
+                        <div class="right textedit">Longnamecity</div>
+                        <div class="left"> State / Province</div>
+                        <div class="right textedit">Unusuallylongia</div>
+                    </div>
+                    <div class="country  item req">
+                        <div class="left">Country</div>
+                        <div class="right textedit">Solomon Islands</div>
+                    </div>
+                    <div class="email item req">
+                        <div class="left">email</div>
+                        <div class="right textedit">Jonathan.simpsonjunior@somecompany.com</div>
+                    </div>
+                </div>
+                <button id="next-2" class="active next">Enter Payment info</button>
+
+                <button id="edit-address" class="gold">Edit Customer Info</button>
+            </div>
+        </div>
+        <div class="step three">
+            <div class="cust-payment">
+                <div class="h2">
+                    <div class="title">Payment Info</div>
+                </div>
+                <div id="my-cards">
+
+
+                    <table id="cards">
+                        <tr class="head">
+                            <th>Your Cards</th>
+                            <th>Name on card</th>
+                            <th>Expiration</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="radio"></div><img src="/images/visa.png">Visa ending in 3456</td>
+                            <td>Jonathan Smith</td>
+                            <td> May 23 2022</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="radio"></div><img src="/images/visa.png">Visa ending in 3456</td>
+                            <td>Jonathan Smith</td>
+                            <td> May 23 2022</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="radio"></div><img src="/images/visa.png">Visa ending in 3456</td>
+                            <td>Jonathan Smith</td>
+                            <td> May 23 2022</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="radio"></div><img src="/images/visa.png">Visa ending in 3456</td>
+                            <td>Jonathan Smith</td>
+                            <td> May 23 2022</td>
+                        </tr>
+                        <tr class="addcc">
+                            <td class="cc">
+                                <div class="material-icons add" id="add-card">add_circle
+                                </div> Add Credit Card</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+
+                    </table>
+                </div>
+
+
+                <div id="new-card">
+                    <div class="firstname item ">
+                        <div class="left">Credit Card number</div>
+                        <div class="right textedit">
+                        </div>
+                    </div>
+                    <div class="lastname item ">
+                        <div class="left">exp date</div>
+                        <div class="right textedit">
+                            John Green</div>
+                    </div>
+                    <div class="address item">
+                        <div class="left">Name on the card</div>
+                        <div class="right textedit">John Smith</div>
+                    </div>
+                </div>
+                <button id="next-3" class="next">Use this Card</button>
+
+
+                <button id="contact-sales" class="gold">Other Payment Methods</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+<script>
+    jQuery(document).ready(function($) {
+
+        $("#closenew-sub").click(function() {
+            $(".modal").fadeOut();
+            $("div").removeClass('done, in-process')
+        })
+        var input1 = $('.cust-details .textedit');
+        var input2 = $('.cust-info .textedit');
+        var input3 = $('.cust-payment .textedit');
+
+        input1.attr('contenteditable', 'true');
+
+        $(".select").click(function() {
+            $(this).closest("div").find(".select-list").slideToggle();
+        });
+        $(".select-list").mouseleave(function() {
+            $(".select-list").fadeOut();
+        });
+
+        $(".help-line").hide();
+        $('.detail-total').hide();
+        $("#edit-details").hide();
+        $(".two, .three").hide();
+        $('#calculate').delay(100).fadeIn()
+        //help, calc button and totals appear
+        $(".cust-details .select, .cust-details .textedit").click(resetkey).mouseleave(hideinfo);
+
+        //  $(".step").removeClass("grow");
+        //  $(".one").addClass("grow");
+        var textBox;
+        var help;
+
+        function hideinfo() {
+            textBox = $(this, ".textedit");
+            help = textBox.closest(".item").find(".help-line");
+            help.delay(500).fadeOut();
+            $('.detail-total, .select-list').delay(200).fadeOut();
+
+
+
+        }
+
+        function resetkey() {
+
+            textBox = $(this, ".textedit");
+            help = textBox.closest(".item").find(".help-line");
+
+            help.delay(100).fadeIn();
+            $('.detail-total').delay(100).fadeOut();
+            $("#calculate").delay(200).fadeIn()
+
+
+
+
+        };
+        $("#calculate").click(function() {
+            $('#calculate').fadeOut();
+            $('.detail-total').delay(1000).fadeIn();
+            $(".taxed").hide();
+
+            $(".cust-details .select, .cust-details .textedit").css('pointer-events', 'none');
+        });
+        $(".detail-values").click(function() {
+            $(".cust-details .select, .cust-details .textedit").css('pointer-events', 'auto');
+        });
+
+    });
+    //open step2
+
+    $("#next-1").click(function() {
+        $("#edit-address").hide();
+        $(".cust-details:not([class~='done'])").addClass("done");
+        $(".editable-subscribe").addClass("in-process");
+        $(".two").addClass("open");
+        $('.cust-details .textedit').attr('contenteditable', 'false');
+        $('.cust-info .textedit').attr('contenteditable', 'true');
+        setTimeout(function() {
+            $(".two").delay(500).show('slide', 1000);
+            $("#next-1").fadeOut();
+            $("#edit-details").delay(1000).fadeIn();
+
+        }, 1000);
+
+    });
+    $("#edit-details").click(function() {
+
+
+
+        $(".two").hide("slide", {
+            direction: 'left'
+        }, 1000);
+        setTimeout(function() {
+            $(".editable-subscribe").removeClass("in-process");
+            $(".cust-details").removeClass("done");
+            $(".two").removeClass("open");
+            $('.cust-details .textedit').attr('contenteditable', 'true');
+            $('.cust-info .textedit').attr('contenteditable', 'false');
+            $("#edit-details").fadeOut();
+            $("#next-1").delay(500).fadeIn();
+
+        });
+
+    });
+    var req = $(".req .textedit");
+    req.blur(function() {
+        if ($(this).text().length === 0) {
+            $("#required").fadeIn();
+
+            $(this).not('.regempty').addClass("reqempty");
+
+        } else {
+
+            $(this).removeClass("reqempty");
+        }
+        if ($('.reqempty').length == 0) {
+            $("#required").fadeOut()
+        };
+    });
+
+    $("#next-2").click(function() {
+        //validate empty fields: todo add onblur validation
+        if ($('.reqempty').length == 0) {
+            $("#new-card").hide();
+            $(".cust-info:not([class~='done'])").addClass("done");
+            $(".editable-subscribe").addClass("in-process");
+            $(".two").removeClass("open");
+            $('.cust-info .textedit').attr('contenteditable', 'false');
+            $('.cust-payment .textedit').attr('contenteditable', 'true');
+            $(".three").addClass("open");
+            setTimeout(function() {
+                $(".three").delay(500).show('slide', 1000);
+                $("#next-2").fadeOut();
+                $("#edit-address").delay(1000).fadeIn();
+
+            }, 1000);
+        } else {
+            $("#required").fadeIn();
+        }
+
+    });
+
+</script>

@@ -1,0 +1,297 @@
+// out: null
+//new subscription
+.editable-subscribe {
+    .radio {
+        background: #ddd;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 20px;
+        border-radius: 50%;
+        border: 1px solid grey;
+        box-shadow: inset 0px 0px 2px grey;
+        margin-left: 9px;
+        vertical-align: middle;
+        &:hover,
+        &.selected {}
+    }
+    #cards {
+        .addcc {
+            border-top: 1px solid grey;
+            .cc {
+                display: flex;
+                align-items: center;
+                font-family: 'Roboto Slab';
+                color: #006676;
+                padding: 10px 0;
+            }
+        }
+        border-collapse: collapse;
+        width: 100%;
+        border: none;
+        img {
+            width: 40px;
+            vertical-align: middle;
+            margin: 5px 20px 5px 5px;
+            border: 1px solid grey;
+        }
+    }
+    .head {
+        border-bottom: 1px solid grey;
+    }
+    tr {
+        &:hover,
+        &.selected {
+            background: #ccc;
+            .radio {
+                &:before {
+                    background: #151f36;
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    content: "";
+                    margin: auto;
+                    display: block;
+                    margin-top: 2px;
+                }
+            }
+        }
+    }
+    button {
+        cursor: pointer;
+        // position: absolute;
+        // bottom: 0;
+        // left: 20px;
+        // width: ~"calc(100% - 40px)";
+        height: 40px;
+        margin: 20px auto 0;
+        &:hover {
+            background: @gold;
+        }
+    }
+    position: relative;
+    min-height: 800px;
+    margin: auto;
+    transition: .5s;
+    width: 550px;
+    background: @grey;
+    &.in-process {
+        width: 800px;
+        min-height: 800px;
+    }
+    .h1 {
+        .title {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .h2 {
+        .title {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .help-line {
+        width: 100%;
+        line-height: 17px;
+        font-size: 13px;
+        position: absolute;
+        right: 0px;
+        border: 1px solid #f9b800;
+        font-weight: lighter;
+        top: 0;
+        background: #ffe8a6;
+        padding: 2px 6px;
+    }
+    .item {
+        height: auto;
+        border: none;
+        display: block;
+    }
+    .left {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        line-height: 20px;
+    }
+    .right {
+        width: 100%;
+        word-break: break-all;
+    }
+    .total {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+        margin-top: 5px;
+        display: block;
+    }
+}
+
+.step {
+    width: 250px;
+    &.open {
+        position: absolute;
+        top: 40px;
+        left: 250px;
+        width: 600px;
+        height: 100%;
+    }
+}
+
+.detail-total {
+    .textedit,
+    .textnonedit,
+    .select {
+        font-size: 19px;
+        line-height: 27px;
+        //
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        background: none;
+        white-space: nowrap;
+        border: none;
+        position: relative;
+        box-shadow: none;
+        color: #006676;
+        .arrow-up {
+            display: none
+        }
+    }
+    .item {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+        margin-top: 5px;
+        display: block;
+    }
+    .left {
+        line-height: 30px;
+        font-size: 14px;
+        //
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+}
+
+.done {
+    .detail-total;
+    .h2 {
+        font-size: 16px;
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #ccc;
+        line-height: 20px;
+        padding-bottom: 10px;
+    }
+    .detail-values,
+    .address-list,
+    .detail-total {
+        padding-top: 0
+    }
+    .item {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 4px;
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+    }
+    .right {
+        width: auto;
+    }
+    .textedit,
+    .textnonedit,
+    .select {
+        line-height: 18px;
+        font-size: 13px;
+        width: 140px;
+        text-align: left;
+        padding-left: 0;
+        margin: 0;
+        background: none;
+        white-space: nowrap;
+        border: none;
+        position: relative;
+        box-shadow: none;
+        color: #006676;
+        font-family: arial, sans-serif;
+        .arrow-up {
+            display: none
+        }
+    }
+    .left {
+        line-height: 18px;
+        font-size: 13px;
+        width: 100px;
+        text-align: left;
+        margin-left: 5px;
+    }
+    .address-list {
+        .address {
+            .right {
+                width: 100% !important;
+            }
+        }
+        .email {
+            .right {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 100%;
+            }
+        }
+        .item {
+            flex-wrap: wrap
+        }
+        .left {
+            display: none
+        }
+        .textedit,
+        .textnonedit,
+        .select {
+            min-width: 0;
+            width: auto;
+            padding-left: 0;
+            padding-right: 5px;
+            white-space: normal;
+            word-wrap: normal;
+            word-break: normal;
+        }
+    }
+}
+
+.cust-details,
+.cust-info,
+.cust-payment {
+    background: #ddd;
+    margin: 0;
+    transition: width .5s, min-height .8s;
+    padding: 20px;
+    position: relative;
+    width: 550px;
+    &.done {
+        width: 250px
+    }
+}
+
+.req {
+    .left {
+        &:after {
+            content: "*";
+            color: #aa0000;
+            margin-left: 1px
+        }
+    }
+    .right {
+        &.reqempty {
+            transition: .2s;
+            border-color: red;
+        }
+    }
+}
+
+.detail-values,
+.address-list,
+.detail-total {
+    position: relative;
+    padding-top: 30px;
+}
