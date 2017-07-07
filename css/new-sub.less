@@ -1,6 +1,25 @@
 // out: null
 //new subscription
 .editable-subscribe {
+    .h1 {
+        font-weight: normal;
+        font-size: 20px;
+        background: #b4b7be;
+        color: #3a435c;
+        border-bottom: 1px solid #9499aa;
+        .title {
+            width: 100%;
+            padding: 0 20px;
+        }
+    }
+    .add {
+        color: @red;
+        font-size: 29px;
+        margin-right: 5px;
+        margin-left: 5px;
+        vertical-align: middle;
+        text-decoration: none;
+    }
     .radio {
         background: #ddd;
         display: inline-block;
@@ -17,13 +36,16 @@
     }
     #cards {
         .addcc {
+            &:hover,
+            &.active {
+                background: none;
+            }
             border-top: 1px solid grey;
-            .cc {
-                display: flex;
-                align-items: center;
-                font-family: 'Roboto Slab';
+            td {
                 color: #006676;
                 padding: 10px 0;
+                text-decoration: underline;
+                font-style: italic;
             }
         }
         border-collapse: collapse;
@@ -38,11 +60,16 @@
     }
     .head {
         border-bottom: 1px solid grey;
+        text-align: left;
+        color: @grey-d;
+        th {
+            font-weight: normal;
+        }
     }
     tr {
         &:hover,
-        &.selected {
-            background: #ccc;
+        &.active {
+            background: @gold;
             .radio {
                 &:before {
                     background: #151f36;
@@ -79,16 +106,17 @@
         width: 800px;
         min-height: 800px;
     }
-    .h1 {
-        .title {
-            width: 100%;
-            text-align: center;
-        }
-    }
     .h2 {
+        font-size: 16px;
+        font-weight: normal;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #ccc;
+        line-height: 20px;
+        padding-bottom: 10px;
         .title {
             width: 100%;
-            text-align: center;
+            text-align: left;
         }
     }
     .help-line {
@@ -123,17 +151,6 @@
         padding-bottom: 5px;
         margin-top: 5px;
         display: block;
-    }
-}
-
-.step {
-    width: 250px;
-    &.open {
-        position: absolute;
-        top: 40px;
-        left: 250px;
-        width: 600px;
-        height: 100%;
     }
 }
 
@@ -174,16 +191,21 @@
 }
 
 .done {
-    .detail-total;
-    .h2 {
-        font-size: 16px;
-        font-weight: normal;
-        padding: 0;
-        margin: 0;
-        border-bottom: 1px solid #ccc;
-        line-height: 20px;
-        padding-bottom: 10px;
+    &.cust-payment {
+        #my-cards {
+            tr.active {
+                background: none;
+                display: grid;
+                font-weight: normal;
+                padding: 4px 0;
+                td {
+                    border-bottom: 1px solid #ccc;
+                    padding: 4px 0;
+                }
+            }
+        }
     }
+    .detail-total;
     .detail-values,
     .address-list,
     .detail-total {
@@ -201,7 +223,8 @@
     }
     .textedit,
     .textnonedit,
-    .select {
+    .select,
+    tbody {
         line-height: 18px;
         font-size: 13px;
         width: 140px;
@@ -229,7 +252,7 @@
     .address-list {
         .address {
             .right {
-                width: 100% !important;
+                width: 100%;
             }
         }
         .email {
@@ -267,9 +290,49 @@
     transition: width .5s, min-height .8s;
     padding: 20px;
     position: relative;
-    width: 550px;
-    &.done {
-        width: 250px
+}
+
+.done {
+    width: 250px;
+}
+
+.review {
+    &.editable-subscribe {
+        min-height: auto;
+    }
+    .cust-details,
+    .cust-info,
+    .cust-payment {
+        padding: 10px 20px
+    }
+    .done {
+        button {
+            width: 200px;
+        }
+        width: auto;
+        .textedit,
+        .textnonedit,
+        .select,
+        tbody,
+        .address-list .address .right,
+        .left {
+            font-size: 14px;
+            line-height: 20px;
+            width: auto;
+        }
+        .left {
+            width: 200px
+        }
+    }
+}
+
+.step {
+    &.open {
+        position: absolute;
+        top: 42px;
+        left: 250px;
+        width: 550px;
+        height: ~"calc(100% - 42px)";
     }
 }
 

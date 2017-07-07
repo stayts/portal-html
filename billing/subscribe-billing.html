@@ -157,11 +157,13 @@
                             <td> May 23 2022</td>
                         </tr>
                         <tr class="addcc">
-                            <td class="cc">
+                            <td>
                                 <div class="material-icons add" id="add-card">add_circle
                                 </div> Add Credit Card</td>
-                            <td></td>
-                            <td></td>
+
+                            <td colspan="2">
+                                <div class="material-icons add" id="contact-sales">account_balance_wallet
+                                </div> Use Other Payment Method</td>
                         </tr>
 
 
@@ -186,12 +188,11 @@
                     </div>
                 </div>
                 <button id="next-3" class="next">Use this Card</button>
-
-
-                <button id="contact-sales" class="gold">Other Payment Methods</button>
+                <button id="edit-card" class="gold">Edit Payment</button>
             </div>
 
         </div>
+        <button id="step-buy" class="gold">OK</button>
 
     </div>
 
@@ -199,6 +200,7 @@
 </div>
 <script>
     jQuery(document).ready(function($) {
+        $("#step-buy").hide();
 
         $("#closenew-sub").click(function() {
             $(".modal").fadeOut();
@@ -264,78 +266,114 @@
             $(".cust-details .select, .cust-details .textedit").css('pointer-events', 'auto');
         });
 
-    });
-    //open step2
 
-    $("#next-1").click(function() {
-        $("#edit-address").hide();
-        $(".cust-details:not([class~='done'])").addClass("done");
-        $(".editable-subscribe").addClass("in-process");
-        $(".two").addClass("open");
-        $('.cust-details .textedit').attr('contenteditable', 'false');
-        $('.cust-info .textedit').attr('contenteditable', 'true');
-        setTimeout(function() {
-            $(".two").delay(500).show('slide', 1000);
-            $("#next-1").fadeOut();
-            $("#edit-details").delay(1000).fadeIn();
+        //open step2
 
-        }, 1000);
+        $("#next-1").click(function() {
+            $("#edit-address").hide();
+            $("#next-2").hide();
+            $(".cust-details:not([class~='done'])").addClass("done");
+            $(".editable-subscribe").addClass("in-process");
+            $(".two").addClass("open");
+            $('.cust-details .textedit').attr('contenteditable', 'false');
+            $('.cust-info .textedit').attr('contenteditable', 'true');
+            setTimeout(function() {
+                $(".two").delay(500).show('slide', 1000);
+                $("#next-1").fadeOut();
+                $("#edit-details").delay(1000).fadeIn();
 
-    });
-    $("#edit-details").click(function() {
+            }, 1000);
+            showNext();
+
+        });
+        $("#edit-details").click(function() {
+            $(".two").hide("slide", {
+                direction: 'left'
+            }, 1000);
+            setTimeout(function() {
+                $(".editable-subscribe").removeClass("in-process");
+                $(".cust-details").removeClass("done");
+                $(".two").removeClass("open");
+                $('.cust-details .textedit').attr('contenteditable', 'true');
+                $('.cust-info .textedit').attr('contenteditable', 'false');
+                $("#edit-details").fadeOut();
+                $("#next-1").delay(500).fadeIn();
+
+            });
+
+        });
+        var req = $(".req .textedit");
+
+        function showNext() {
+            if ($('.reqempty').length == 0) {
+                $("#required").fadeOut();
+                $("#next-2").delay(500).fadeIn();
+            };
+        }
 
 
+        req.blur(function() {
+            if ($(this).text().length === 0) {
+                $("#required").fadeIn();
+                $("#next-2").fadeOut();
+                $(this).not('.regempty').addClass("reqempty");
 
-        $(".two").hide("slide", {
-            direction: 'left'
-        }, 1000);
-        setTimeout(function() {
-            $(".editable-subscribe").removeClass("in-process");
-            $(".cust-details").removeClass("done");
-            $(".two").removeClass("open");
-            $('.cust-details .textedit').attr('contenteditable', 'true');
-            $('.cust-info .textedit').attr('contenteditable', 'false');
-            $("#edit-details").fadeOut();
-            $("#next-1").delay(500).fadeIn();
+            } else {
+
+                $(this).removeClass("reqempty");
+            }
+            showNext();
 
         });
 
+        $("#next-2").click(function() {
+            $("#edit-card").hide();
+
+            //validate empty fields: todo add onblur validation
+            if ($('.reqempty').length == 0) {
+                $("#new-card").hide();
+                $("#next-3").hide();
+                $(".cust-info:not([class~='done'])").addClass("done");
+                $(".editable-subscribe").addClass("in-process");
+                $(".two").removeClass("open");
+                $('.cust-info .textedit').attr('contenteditable', 'false');
+                $('.cust-payment .textedit').attr('contenteditable', 'true');
+                $(".three").addClass("open");
+                setTimeout(function() {
+                    $(".three").delay(500).show('slide', 1000);
+                    $("#next-2").fadeOut();
+                    $("#edit-address").delay(500).fadeIn();
+
+                }, 1000);
+            } else {
+                $("#required").fadeIn();
+            }
+
+        });
+        var creditcard = $("#cards tr").not(".head, .addcc ");
+        creditcard.click(function() {
+            if ($(this).not('.active')) {
+                $("#cards tr").removeClass("active");
+                $(this).addClass("active");
+                $("#next-3").delay(500).fadeIn();
+
+            }
+        });
     });
-    var req = $(".req .textedit");
-    req.blur(function() {
-        if ($(this).text().length === 0) {
-            $("#required").fadeIn();
+    $("#next-3").click(function() {
+        $("#edit-address").hide();
+        $("#next-3").hide();
+        $(".cust-payment:not([class~='done'])").addClass("done");
+        $(".editable-subscribe").removeClass("in-process");
+        $(".editable-subscribe").addClass("review");
+        $(".three").removeClass("open");
+        $("#cards img").hide();
+        $(".radio").hide();
+        $("#cards tr:not([class~='active'])").hide();
+        $("#edit-address").delay(500).fadeIn();
+        $("#edit-card").delay(500).fadeIn();
+        $("#step-buy").delay(500).fadeIn();
 
-            $(this).not('.regempty').addClass("reqempty");
-
-        } else {
-
-            $(this).removeClass("reqempty");
-        }
-        if ($('.reqempty').length == 0) {
-            $("#required").fadeOut()
-        };
-    });
-
-    $("#next-2").click(function() {
-        //validate empty fields: todo add onblur validation
-        if ($('.reqempty').length == 0) {
-            $("#new-card").hide();
-            $(".cust-info:not([class~='done'])").addClass("done");
-            $(".editable-subscribe").addClass("in-process");
-            $(".two").removeClass("open");
-            $('.cust-info .textedit').attr('contenteditable', 'false');
-            $('.cust-payment .textedit').attr('contenteditable', 'true');
-            $(".three").addClass("open");
-            setTimeout(function() {
-                $(".three").delay(500).show('slide', 1000);
-                $("#next-2").fadeOut();
-                $("#edit-address").delay(1000).fadeIn();
-
-            }, 1000);
-        } else {
-            $("#required").fadeIn();
-        }
 
     });
 

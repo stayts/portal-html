@@ -42,7 +42,7 @@ a {
   font-weight: 400;
   src: url(https://example.com/MaterialIcons-Regular.eot);
   /* For IE6-8 */
-  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'), url(https://example.com/MaterialIcons-Regular.woff) format('woff'), url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  src: local('Material Icons'), local('MaterialIcons-Regular');
 }
 #container {
   margin: 0 auto;
@@ -105,10 +105,6 @@ body {
 }
 * {
   box-sizing: border-box;
-}
-.add {
-  font-size: 40px;
-  color: #e32048;
 }
 .h1 {
   line-height: 40px;
@@ -405,6 +401,7 @@ table.payment-info .visa-info {
 }
 .menu-button:hover,
 .menu-button.active {
+  z-index: 1;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -549,9 +546,9 @@ table.payment-info .visa-info {
 .modal .close {
   position: absolute;
   right: 0;
-  color: #aa0000;
-  font-size: 33px;
-  margin: 4px;
+  color: #3a435c;
+  font-size: 26px;
+  margin: 6px;
 }
 .modal .close:hover {
   background: #aa0000;
@@ -650,22 +647,20 @@ table.payment-info .visa-info {
   transform: skew(15deg) rotate(6deg);
 }
 .modal button {
-  background: #006676;
+  background: #009bb3;
+  color: #f5f5f5;
+  border: 1px solid #006676;
   border: none;
   padding: 5px 10px;
   font-size: 16px;
   white-space: nowrap;
-  word-wrap: initial;
   width: 100%;
-  color: white;
   font-family: 'Roboto Slab';
   margin: auto;
   display: block;
 }
-.modal button:hover,
-.modal button.active {
-  background: #e32048;
-  color: #151f36;
+.modal button:hover {
+  background: #26b6cc;
 }
 .modal .done button {
   height: 30px;
@@ -806,6 +801,25 @@ table.payment-info .visa-info {
   width: 550px;
   background: #dddddd;
 }
+.editable-subscribe .h1 {
+  font-weight: normal;
+  font-size: 20px;
+  background: #b4b7be;
+  color: #3a435c;
+  border-bottom: 1px solid #9499aa;
+}
+.editable-subscribe .h1 .title {
+  width: 100%;
+  padding: 0 20px;
+}
+.editable-subscribe .add {
+  color: #e32048;
+  font-size: 29px;
+  margin-right: 5px;
+  margin-left: 5px;
+  vertical-align: middle;
+  text-decoration: none;
+}
 .editable-subscribe .radio {
   background: #ddd;
   display: inline-block;
@@ -826,12 +840,15 @@ table.payment-info .visa-info {
 .editable-subscribe #cards .addcc {
   border-top: 1px solid grey;
 }
-.editable-subscribe #cards .addcc .cc {
-  display: flex;
-  align-items: center;
-  font-family: 'Roboto Slab';
+.editable-subscribe #cards .addcc:hover,
+.editable-subscribe #cards .addcc.active {
+  background: none;
+}
+.editable-subscribe #cards .addcc td {
   color: #006676;
   padding: 10px 0;
+  text-decoration: underline;
+  font-style: italic;
 }
 .editable-subscribe #cards img {
   width: 40px;
@@ -841,13 +858,18 @@ table.payment-info .visa-info {
 }
 .editable-subscribe .head {
   border-bottom: 1px solid grey;
+  text-align: left;
+  color: #9499aa;
+}
+.editable-subscribe .head th {
+  font-weight: normal;
 }
 .editable-subscribe tr:hover,
-.editable-subscribe tr.selected {
-  background: #ccc;
+.editable-subscribe tr.active {
+  background: #f9b800;
 }
 .editable-subscribe tr:hover .radio:before,
-.editable-subscribe tr.selected .radio:before {
+.editable-subscribe tr.active .radio:before {
   background: #151f36;
   width: 9px;
   height: 9px;
@@ -869,13 +891,18 @@ table.payment-info .visa-info {
   width: 800px;
   min-height: 800px;
 }
-.editable-subscribe .h1 .title {
-  width: 100%;
-  text-align: center;
+.editable-subscribe .h2 {
+  font-size: 16px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  line-height: 20px;
+  padding-bottom: 10px;
 }
 .editable-subscribe .h2 .title {
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 .editable-subscribe .help-line {
   width: 100%;
@@ -909,16 +936,6 @@ table.payment-info .visa-info {
   padding-bottom: 5px;
   margin-top: 5px;
   display: block;
-}
-.step {
-  width: 250px;
-}
-.step.open {
-  position: absolute;
-  top: 40px;
-  left: 250px;
-  width: 600px;
-  height: 100%;
 }
 .detail-total .textedit,
 .detail-total .textnonedit,
@@ -956,14 +973,15 @@ table.payment-info .visa-info {
 .done {
   padding-top: 0;
 }
-.done .h2 {
-  font-size: 16px;
+.done.cust-payment #my-cards tr.active {
+  background: none;
+  display: grid;
   font-weight: normal;
-  padding: 0;
-  margin: 0;
+  padding: 4px 0;
+}
+.done.cust-payment #my-cards tr.active td {
   border-bottom: 1px solid #ccc;
-  line-height: 20px;
-  padding-bottom: 10px;
+  padding: 4px 0;
 }
 .done .detail-values,
 .done .address-list,
@@ -982,7 +1000,8 @@ table.payment-info .visa-info {
 }
 .done .textedit,
 .done .textnonedit,
-.done .select {
+.done .select,
+.done tbody {
   line-height: 18px;
   font-size: 13px;
   width: 140px;
@@ -999,7 +1018,8 @@ table.payment-info .visa-info {
 }
 .done .textedit .arrow-up,
 .done .textnonedit .arrow-up,
-.done .select .arrow-up {
+.done .select .arrow-up,
+.done tbody .arrow-up {
   display: none;
 }
 .done .left {
@@ -1010,7 +1030,7 @@ table.payment-info .visa-info {
   margin-left: 5px;
 }
 .done .address-list .address .right {
-  width: 100% !important;
+  width: 100%;
 }
 .done .address-list .email .right {
   overflow: hidden;
@@ -1042,12 +1062,43 @@ table.payment-info .visa-info {
   transition: width 0.5s, min-height 0.8s;
   padding: 20px;
   position: relative;
-  width: 550px;
 }
-.cust-details.done,
-.cust-info.done,
-.cust-payment.done {
+.done {
   width: 250px;
+}
+.review.editable-subscribe {
+  min-height: auto;
+}
+.review .cust-details,
+.review .cust-info,
+.review .cust-payment {
+  padding: 10px 20px;
+}
+.review .done {
+  width: auto;
+}
+.review .done button {
+  width: 200px;
+}
+.review .done .textedit,
+.review .done .textnonedit,
+.review .done .select,
+.review .done tbody,
+.review .done .address-list .address .right,
+.review .done .left {
+  font-size: 14px;
+  line-height: 20px;
+  width: auto;
+}
+.review .done .left {
+  width: 200px;
+}
+.step.open {
+  position: absolute;
+  top: 42px;
+  left: 250px;
+  width: 550px;
+  height: calc(100% - 42px);
 }
 .req .left:after {
   content: "*";
