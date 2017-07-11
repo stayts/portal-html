@@ -41,7 +41,6 @@ a {
   font-style: normal;
   font-weight: 400;
   src: url(https://example.com/MaterialIcons-Regular.eot);
-  /* For IE6-8 */
   src: local('Material Icons'), local('MaterialIcons-Regular');
 }
 #container {
@@ -224,13 +223,11 @@ table.payment-info .visa-info {
   display: flex;
 }
 .hover {
-  background: #009bb3;
-  color: white;
+  background: #d5ecf0;
 }
 [contenteditable="true"] {
   overflow: visible;
   background: #ffffff;
-  white-space: nowrap;
   text-align: left;
   border: 1px solid #009bb3;
   padding: 0 10px;
@@ -238,21 +235,22 @@ table.payment-info .visa-info {
   font-family: 'Roboto Slab';
   width: inherit;
   box-sizing: border-box;
+  height: 35px;
   box-shadow: inset 0px 0px 2px grey;
+  word-wrap: break-word;
+  word-break: break-all;
   color: black;
   min-height: 36px;
   line-height: 22px;
   display: flex;
   align-items: center;
   height: auto;
-  white-space: normal;
-  overflow: auto;
-  break-words: all;
+  white-space: nowrap;
+  overflow: hidden;
 }
 [contenteditable="true"]:hover,
 [contenteditable="true"]:focus {
-  background: #009bb3;
-  color: white;
+  background: #d5ecf0;
 }
 [contenteditable="true"] br {
   display: none;
@@ -260,8 +258,7 @@ table.payment-info .visa-info {
 [contenteditable="true"]:focus,
 [contenteditable="true"]:hover,
 [contenteditable="true"]:active {
-  background: #009bb3;
-  color: white;
+  background: #d5ecf0;
 }
 .select {
   overflow: visible;
@@ -274,16 +271,17 @@ table.payment-info .visa-info {
   font-family: 'Roboto Slab';
   width: inherit;
   box-sizing: border-box;
+  height: 35px;
   box-shadow: inset 0px 0px 2px grey;
+  word-wrap: break-word;
+  word-break: break-all;
   color: black;
 }
 .select:hover,
 .select:focus {
-  background: #009bb3;
-  color: white;
+  background: #d5ecf0;
 }
 .select-list {
-  display: none;
   position: absolute;
   background: #f5f5f5;
   z-index: 1;
@@ -299,12 +297,11 @@ table.payment-info .visa-info {
   float: right;
 }
 .data {
-  padding: 5px 10px;
+  padding: 0 10px;
 }
 .data:hover,
 .data:focus {
-  background: #009bb3;
-  color: white;
+  background: #d5ecf0;
 }
 .static,
 .editable {
@@ -657,7 +654,6 @@ table.payment-info .visa-info {
   width: 100%;
   font-family: 'Roboto Slab';
   margin: auto;
-  display: block;
 }
 .modal button:hover {
   background: #26b6cc;
@@ -794,12 +790,12 @@ table.payment-info .visa-info {
   }
 }
 .editable-subscribe {
+  background: #f5f5f5;
   position: relative;
   min-height: 800px;
   margin: auto;
   transition: .5s;
   width: 550px;
-  background: #dddddd;
 }
 .editable-subscribe .h1 {
   font-weight: normal;
@@ -807,6 +803,7 @@ table.payment-info .visa-info {
   background: #b4b7be;
   color: #3a435c;
   border-bottom: 1px solid #9499aa;
+  margin: 0;
 }
 .editable-subscribe .h1 .title {
   width: 100%;
@@ -890,6 +887,7 @@ table.payment-info .visa-info {
 .editable-subscribe.in-process {
   width: 800px;
   min-height: 800px;
+  background: #dddddd;
 }
 .editable-subscribe .h2 {
   font-size: 16px;
@@ -970,8 +968,20 @@ table.payment-info .visa-info {
   text-align: center;
   margin: 0;
 }
+.edit {
+  display: none;
+}
+.next {
+  display: block;
+}
 .done {
   padding-top: 0;
+}
+.done .edit {
+  display: block;
+}
+.done .next {
+  display: none;
 }
 .done.cust-payment #my-cards tr.active {
   background: none;
@@ -993,7 +1003,7 @@ table.payment-info .visa-info {
   padding-bottom: 4px;
   margin-top: 4px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .done .right {
   width: auto;
@@ -1004,12 +1014,13 @@ table.payment-info .visa-info {
 .done tbody {
   line-height: 18px;
   font-size: 13px;
-  width: 140px;
+  width: 105px;
   text-align: left;
   padding-left: 0;
   margin: 0;
   background: none;
-  white-space: nowrap;
+  height: auto;
+  white-space: normal;
   border: none;
   position: relative;
   box-shadow: none;
@@ -1025,9 +1036,22 @@ table.payment-info .visa-info {
 .done .left {
   line-height: 18px;
   font-size: 13px;
-  width: 100px;
+  width: 105px;
   text-align: left;
-  margin-left: 5px;
+  margin: 0 5px;
+}
+.done .taxed {
+  background: whitesmoke;
+  border: 1px solid #ccc;
+  padding: 5px 0;
+  margin-top: 0;
+}
+.done .taxed .left {
+  color: black;
+}
+.done .taxed .right {
+  font-weight: bold;
+  font-size: 17px;
 }
 .done .address-list .address .right {
   width: 100%;
@@ -1036,6 +1060,8 @@ table.payment-info .visa-info {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
+  padding: 0;
+  white-space: nowrap;
 }
 .done .address-list .item {
   flex-wrap: wrap;
@@ -1054,10 +1080,7 @@ table.payment-info .visa-info {
   word-wrap: normal;
   word-break: normal;
 }
-.cust-details,
-.cust-info,
-.cust-payment {
-  background: #ddd;
+.content {
   margin: 0;
   transition: width 0.5s, min-height 0.8s;
   padding: 20px;
@@ -1065,6 +1088,7 @@ table.payment-info .visa-info {
 }
 .done {
   width: 250px;
+  padding: 5px 10px 5px 20px;
 }
 .review.editable-subscribe {
   min-height: auto;
@@ -1097,8 +1121,9 @@ table.payment-info .visa-info {
   position: absolute;
   top: 42px;
   left: 250px;
-  width: 550px;
+  width: calc(100% - 250px);
   height: calc(100% - 42px);
+  background: #f5f5f5;
 }
 .req .left:after {
   content: "*";

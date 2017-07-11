@@ -1,12 +1,14 @@
 // out: null
 //new subscription
 .editable-subscribe {
+    background: #f5f5f5;
     .h1 {
         font-weight: normal;
         font-size: 20px;
         background: #b4b7be;
         color: #3a435c;
         border-bottom: 1px solid #9499aa;
+        margin: 0;
         .title {
             width: 100%;
             padding: 0 20px;
@@ -101,10 +103,10 @@
     margin: auto;
     transition: .5s;
     width: 550px;
-    background: @grey;
     &.in-process {
         width: 800px;
         min-height: 800px;
+        background: #dddddd;
     }
     .h2 {
         font-size: 16px;
@@ -190,7 +192,21 @@
     }
 }
 
+.edit {
+    display: none;
+}
+
+.next {
+    display: block;
+}
+
 .done {
+    .edit {
+        display: block;
+    }
+    .next {
+        display: none
+    }
     &.cust-payment {
         #my-cards {
             tr.active {
@@ -216,7 +232,7 @@
         padding-bottom: 4px;
         margin-top: 4px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
     }
     .right {
         width: auto;
@@ -227,12 +243,13 @@
     tbody {
         line-height: 18px;
         font-size: 13px;
-        width: 140px;
+        width: 105px;
         text-align: left;
         padding-left: 0;
         margin: 0;
         background: none;
-        white-space: nowrap;
+        height: auto;
+        white-space: normal;
         border: none;
         position: relative;
         box-shadow: none;
@@ -245,9 +262,22 @@
     .left {
         line-height: 18px;
         font-size: 13px;
-        width: 100px;
+        width: 105px;
         text-align: left;
-        margin-left: 5px;
+        margin: 0 5px;
+    }
+    .taxed {
+        background: whitesmoke;
+        border: 1px solid #ccc;
+        padding: 5px 0;
+        margin-top: 0;
+        .left {
+            color: black
+        }
+        .right {
+            font-weight: bold;
+            font-size: 17px;
+        }
     }
     .address-list {
         .address {
@@ -260,6 +290,8 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 width: 100%;
+                padding: 0;
+                white-space: nowrap;
             }
         }
         .item {
@@ -282,10 +314,7 @@
     }
 }
 
-.cust-details,
-.cust-info,
-.cust-payment {
-    background: #ddd;
+.content {
     margin: 0;
     transition: width .5s, min-height .8s;
     padding: 20px;
@@ -294,6 +323,7 @@
 
 .done {
     width: 250px;
+    padding: 5px 10px 5px 20px;
 }
 
 .review {
@@ -331,8 +361,9 @@
         position: absolute;
         top: 42px;
         left: 250px;
-        width: 550px;
+        width: ~"calc(100% - 250px)";
         height: ~"calc(100% - 42px)";
+        background: #f5f5f5;
     }
 }
 

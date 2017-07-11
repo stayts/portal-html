@@ -3,12 +3,12 @@
     <div class="editable-subscribe">
         <div class="close material-icons" id="closenew-sub">close</div>
         <div class="h1">
-            <div class="title">My Subscription</div>
+            My Subscription
         </div>
-        <div class="step one">
-            <div class="cust-details">
+        <div id="step1" class="step">
+            <div class="cust-details content">
                 <div class="h2">
-                    <div class="title">Details</div>
+                    Details
                 </div>
                 <div class="detail-values">
                     <div class="users item">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="length item">
                         <div class="left">Contract Length</div>
-                        <div class="right">
+                        <div class="right dropdown">
                             <legend class="select">
                                 <div class="input-field">1 year contract</div>
                                 <div class="arrow-up">▼</div>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="type item ">
                         <div class="left">Billing Period</div>
-                        <div class="right">
+                        <div class="right dropdown">
                             <legend class="select">
                                 <div class="input-field">Annualy</div>
                                 <div class="arrow-up">▼</div>
@@ -53,9 +53,8 @@
                         </div>
                         <div class="help-line">Choose how often would you like us to bill you </div>
                     </div>
-
+                    <button id="calculate">Calculate the price</button>
                 </div>
-
                 <div class="detail-total">
                     <div class="item  bill">
                         <div class="left">Bill Payment (quarterly billing)</div>
@@ -70,16 +69,17 @@
                         <div class="left">Due today including taxes</div>
                         <div class="right textnonedit">$1000</div>
                     </div>
-                    <button id="next-1" class=" next">Enter Customer Info</button>
-                    <button id="edit-details" class="gold">Edit Details</button>
+
                 </div>
-                <button id="calculate" class="active">Calculate the price</button>
+                <button id="edit1" class="edit">Edit Details</button>
+
+                <button id="next1" class="next">Enter Customer Info</button>
             </div>
         </div>
-        <div class="step two">
-            <div class="cust-info">
+        <div id="step2" class="step">
+            <div class="cust-info content">
                 <div class="h2">
-                    <div class="title">Customer Info</div>
+                    Customer Info
                 </div>
                 <div class="address-list">
                     <div class="help-line" id="required">Required fields </div>
@@ -113,15 +113,14 @@
                         <div class="right textedit">Jonathan.simpsonjunior@somecompany.com</div>
                     </div>
                 </div>
-                <button id="next-2" class="active next">Enter Payment info</button>
-
-                <button id="edit-address" class="gold">Edit Customer Info</button>
+                <button id="next2" class="next">Enter Payment Info</button>
+                <button id="edit2" class="edit">Edit Customer Info</button>
             </div>
         </div>
-        <div class="step three">
-            <div class="cust-payment">
+        <div id="step3" class="step">
+            <div class="cust-payment content">
                 <div class="h2">
-                    <div class="title">Payment Info</div>
+                    Payment Info
                 </div>
                 <div id="my-cards">
 
@@ -187,8 +186,8 @@
                         <div class="right textedit">John Smith</div>
                     </div>
                 </div>
-                <button id="next-3" class="next">Use this Card</button>
-                <button id="edit-card" class="gold">Edit Payment</button>
+                <button id="next3" class="next">Use this Card</button>
+                <button id="edit3" class="edit">Edit Payment</button>
             </div>
 
         </div>
@@ -198,183 +197,4 @@
 
 
 </div>
-<script>
-    jQuery(document).ready(function($) {
-        $("#step-buy").hide();
-
-        $("#closenew-sub").click(function() {
-            $(".modal").fadeOut();
-            $("div").removeClass('done, in-process')
-        })
-        var input1 = $('.cust-details .textedit');
-        var input2 = $('.cust-info .textedit');
-        var input3 = $('.cust-payment .textedit');
-
-        input1.attr('contenteditable', 'true');
-
-        $(".select").click(function() {
-            $(this).closest("div").find(".select-list").slideToggle();
-        });
-        $(".select-list").mouseleave(function() {
-            $(".select-list").fadeOut();
-        });
-
-        $(".help-line").hide();
-        $('.detail-total').hide();
-        $("#edit-details").hide();
-        $(".two, .three").hide();
-        $('#calculate').delay(100).fadeIn()
-        //help, calc button and totals appear
-        $(".cust-details .select, .cust-details .textedit").click(resetkey).mouseleave(hideinfo);
-
-        //  $(".step").removeClass("grow");
-        //  $(".one").addClass("grow");
-        var textBox;
-        var help;
-
-        function hideinfo() {
-            textBox = $(this, ".textedit");
-            help = textBox.closest(".item").find(".help-line");
-            help.delay(500).fadeOut();
-            $('.detail-total, .select-list').delay(200).fadeOut();
-
-
-
-        }
-
-        function resetkey() {
-
-            textBox = $(this, ".textedit");
-            help = textBox.closest(".item").find(".help-line");
-
-            help.delay(100).fadeIn();
-            $('.detail-total').delay(100).fadeOut();
-            $("#calculate").delay(200).fadeIn()
-
-
-
-
-        };
-        $("#calculate").click(function() {
-            $('#calculate').fadeOut();
-            $('.detail-total').delay(1000).fadeIn();
-            $(".taxed").hide();
-
-            $(".cust-details .select, .cust-details .textedit").css('pointer-events', 'none');
-        });
-        $(".detail-values").click(function() {
-            $(".cust-details .select, .cust-details .textedit").css('pointer-events', 'auto');
-        });
-
-
-        //open step2
-
-        $("#next-1").click(function() {
-            $("#edit-address").hide();
-            $("#next-2").hide();
-            $(".cust-details:not([class~='done'])").addClass("done");
-            $(".editable-subscribe").addClass("in-process");
-            $(".two").addClass("open");
-            $('.cust-details .textedit').attr('contenteditable', 'false');
-            $('.cust-info .textedit').attr('contenteditable', 'true');
-            setTimeout(function() {
-                $(".two").delay(500).show('slide', 1000);
-                $("#next-1").fadeOut();
-                $("#edit-details").delay(1000).fadeIn();
-
-            }, 1000);
-            showNext();
-
-        });
-        $("#edit-details").click(function() {
-            $(".two").hide("slide", {
-                direction: 'left'
-            }, 1000);
-            setTimeout(function() {
-                $(".editable-subscribe").removeClass("in-process");
-                $(".cust-details").removeClass("done");
-                $(".two").removeClass("open");
-                $('.cust-details .textedit').attr('contenteditable', 'true');
-                $('.cust-info .textedit').attr('contenteditable', 'false');
-                $("#edit-details").fadeOut();
-                $("#next-1").delay(500).fadeIn();
-
-            });
-
-        });
-        var req = $(".req .textedit");
-
-        function showNext() {
-            if ($('.reqempty').length == 0) {
-                $("#required").fadeOut();
-                $("#next-2").delay(500).fadeIn();
-            };
-        }
-
-
-        req.blur(function() {
-            if ($(this).text().length === 0) {
-                $("#required").fadeIn();
-                $("#next-2").fadeOut();
-                $(this).not('.regempty').addClass("reqempty");
-
-            } else {
-
-                $(this).removeClass("reqempty");
-            }
-            showNext();
-
-        });
-
-        $("#next-2").click(function() {
-            $("#edit-card").hide();
-
-            //validate empty fields: todo add onblur validation
-            if ($('.reqempty').length == 0) {
-                $("#new-card").hide();
-                $("#next-3").hide();
-                $(".cust-info:not([class~='done'])").addClass("done");
-                $(".editable-subscribe").addClass("in-process");
-                $(".two").removeClass("open");
-                $('.cust-info .textedit').attr('contenteditable', 'false');
-                $('.cust-payment .textedit').attr('contenteditable', 'true');
-                $(".three").addClass("open");
-                setTimeout(function() {
-                    $(".three").delay(500).show('slide', 1000);
-                    $("#next-2").fadeOut();
-                    $("#edit-address").delay(500).fadeIn();
-
-                }, 1000);
-            } else {
-                $("#required").fadeIn();
-            }
-
-        });
-        var creditcard = $("#cards tr").not(".head, .addcc ");
-        creditcard.click(function() {
-            if ($(this).not('.active')) {
-                $("#cards tr").removeClass("active");
-                $(this).addClass("active");
-                $("#next-3").delay(500).fadeIn();
-
-            }
-        });
-    });
-    $("#next-3").click(function() {
-        $("#edit-address").hide();
-        $("#next-3").hide();
-        $(".cust-payment:not([class~='done'])").addClass("done");
-        $(".editable-subscribe").removeClass("in-process");
-        $(".editable-subscribe").addClass("review");
-        $(".three").removeClass("open");
-        $("#cards img").hide();
-        $(".radio").hide();
-        $("#cards tr:not([class~='active'])").hide();
-        $("#edit-address").delay(500).fadeIn();
-        $("#edit-card").delay(500).fadeIn();
-        $("#step-buy").delay(500).fadeIn();
-
-
-    });
-
-</script>
+<script src="../js/new-sub.js"></script>

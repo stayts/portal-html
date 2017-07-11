@@ -63,30 +63,6 @@ jQuery(document).ready(function ($) {
         $("#page-content").load("/billing/makeadmin-billing.html");
         $('#makeadmin-billing.menu-button').addClass('active');
     });
-//    // go to index-portal.html
-//    $("#gotoportal-billing").on("click", function () {
-//        $("#modal").load("/billing/gotoportal-billing.html");
-//    });
-//    $("#gotoportal-go").on("click", function () {
-//        window.location.href = 'index-portal.html';
-//    });
-//    //cancel-btn
-//    $(".cancel").on("click", function () {
-//        $("#modal").load("");
-//    });
-
-    $(".select").click(function () {
-        $(this).closest("div").find(".select-list").slideToggle();
-    });
-
-
-    $(".select-list").mouseleave(function () {
-        $(".select-list").fadeOut();
-
-    });
-
-
-
 
 
 
