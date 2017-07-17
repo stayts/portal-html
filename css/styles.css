@@ -797,6 +797,22 @@ table.payment-info .visa-info {
     align-items: center;
   }
 }
+/*steps
+1. Before start hidden
+2. opened
+content in abs position,
+all fields editable,
+step name is active,
+edit button not visible wizard done button hidden,
+next but vizible,
+buy button hidden
+review font is larger,
+some css added done button vizible,
+next button hidden buy button hidden 3. minimized content in rel position,
+all fields uneditable,
+next button hidden,
+done button hiddden step name is not active inactive cards hidden,
+cards extra divs hidden buy button hidden Wizard edit button visible review edit button hidden step styling before start ->(wizard)open <----->(wizard)minimized ->(wizard)open ->(review)minimized <---->(review) open*/
 .editable-subscribe {
   width: 800px;
   position: relative;
@@ -823,16 +839,6 @@ table.payment-info .visa-info {
 .editable-subscribe button:hover {
   background: #f9b800;
 }
-.editable-subscribe button.edit {
-  display: initial;
-  width: 60px;
-  height: 25px;
-  margin: 0;
-  font-size: 13px;
-  padding: 0;
-  background: #dedede;
-  color: #3a435c;
-}
 .editable-subscribe .h2 {
   font-size: 16px;
   font-weight: normal;
@@ -842,32 +848,6 @@ table.payment-info .visa-info {
   padding-bottom: 10px 0;
   width: 100%;
   text-align: left;
-}
-.editable-subscribe .h3 {
-  font-size: 16px;
-  font-weight: normal;
-  padding: 0;
-  margin: 0;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px 0;
-  width: 100%;
-  text-align: left;
-  border-bottom: none;
-  font-family: 'Roboto Slab';
-  display: flex;
-  align-items: center;
-  background: #ccc;
-  padding: 5px;
-  justify-content: space-between;
-}
-.editable-subscribe .h3.active {
-  background: #26b6cc;
-}
-.editable-subscribe .h3.active .edit {
-  display: none;
-}
-.editable-subscribe .h3.edit-progress .edit {
-  display: none;
 }
 .editable-subscribe .help-line {
   width: 100%;
@@ -911,7 +891,51 @@ table.payment-info .visa-info {
   margin-top: 5px;
   display: block;
 }
-.content.open {
+#step-buy {
+  display: none;
+}
+.step {
+  padding: 10px;
+  width: 250px;
+}
+.step .h3 {
+  display: none;
+  border-bottom: none;
+  font-family: 'Roboto Slab';
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  justify-content: space-between;
+  background: #ccc;
+}
+.step .h3 .edit {
+  display: block;
+  width: 60px;
+  height: 25px;
+  margin: 0;
+  font-size: 13px;
+  padding: 0;
+  background: #dedede;
+  color: #3a435c;
+}
+.step .taxed,
+.step .help-line,
+.step .required,
+.step .donebtn,
+.step #new-card,
+.step .detail-total {
+  display: none;
+}
+.step.not-started {
+  display: none;
+}
+.step.open .h3 {
+  background: #26b6cc;
+}
+.step.open .h3 .edit {
+  display: none;
+}
+.step.open .content {
   position: absolute;
   top: 41px;
   left: 250px;
@@ -920,20 +944,9 @@ table.payment-info .visa-info {
   padding: 10px;
   background: #f5f5f5;
 }
-.taxed,
-.help-line,
-.required,
-.donebtn,
-#new-card,
-.detail-total {
-  display: none;
-}
-.not-started {
-  display: none;
-}
-.detail-total .textedit,
-.detail-total .textnonedit,
-.detail-total .select {
+.step.open .detail-total .textedit,
+.step.open .detail-total .textnonedit,
+.step.open .detail-total .select {
   font-size: 19px;
   text-align: center;
   width: 100%;
@@ -946,61 +959,102 @@ table.payment-info .visa-info {
   color: #006676;
   line-height: normal;
 }
-.detail-total .textedit .arrow-up,
-.detail-total .textnonedit .arrow-up,
-.detail-total .select .arrow-up {
+.step.open .detail-total .textedit .arrow-up,
+.step.open .detail-total .textnonedit .arrow-up,
+.step.open .detail-total .select .arrow-up {
   display: none;
 }
-.detail-total .item {
+.step.open .detail-total .item {
   border-bottom: 1px solid #ccc;
 }
-.detail-total .left {
+.step.open .detail-total .left {
   font-size: 14px;
   width: 100%;
   text-align: center;
   margin: 0;
 }
-#add-cc {
+.step.open #add-cc {
   display: flex;
   justify-content: space-between;
   color: #009bb3;
   font-size: 13px;
 }
-#add-cc .add-item {
+.step.open #add-cc .add-item {
   display: flex;
   align-items: center;
 }
-#add-cc .link {
+.step.open #add-cc .link {
   font-style: italic;
   text-decoration: underline;
 }
-.next {
+.step.open .next {
   display: block;
 }
-.done #my-cards img,
-.done #my-cards .radio,
-.done #my-cards .head,
-.done #my-cards .card:not(.active) {
+.step .review .h3 .edit {
   display: none;
 }
-.done .donebtn,
-.done .h2,
-.done .next,
-.done #add-cc {
+.step .review #step-buy {
+  display: block;
+}
+.step .review .step {
+  width: auto;
+  padding: 0;
+}
+.step .review .content {
+  padding: 10px;
+}
+.step .review .item {
+  font-size: 14px;
+  width: auto;
+}
+.step .review .item .left {
+  width: 150px;
+}
+.step.done #step-buy {
+  display: block;
+}
+.step.done .step {
+  width: auto;
+  padding: 0;
+}
+.step.done .content {
+  padding: 10px;
+}
+.step.done .item {
+  font-size: 14px;
+  width: auto;
+}
+.step.done .item .left {
+  width: 150px;
+}
+.step .content {
+  position: relative;
+}
+.step #my-cards img,
+.step #my-cards .radio,
+.step #my-cards .head,
+.step #my-cards .card:not(.active) {
   display: none;
 }
-.done .item {
+.step .donebtn,
+.step .h2,
+.step .next,
+.step #add-cc,
+.step #calculate {
+  display: none;
+}
+.step .item {
   border-bottom: 1px solid #ccc;
   display: flex;
   align-items: flex-start;
   padding: 5px;
 }
-.done .right {
+.step .right {
   width: auto;
 }
-.done .textedit,
-.done .textnonedit,
-.done .select {
+.step .textedit,
+.step .textnonedit,
+.step .select {
   font-size: 13px;
   width: 105px;
   text-align: left;
@@ -1016,46 +1070,46 @@ table.payment-info .visa-info {
   line-height: normal;
   font-family: arial, sans-serif;
 }
-.done .textedit .arrow-up,
-.done .textnonedit .arrow-up,
-.done .select .arrow-up {
+.step .textedit .arrow-up,
+.step .textnonedit .arrow-up,
+.step .select .arrow-up {
   display: none;
 }
-.done .left {
+.step .left {
   font-size: 13px;
   width: 105px;
   text-align: left;
   margin-right: 5px;
 }
-.done .taxed {
+.step .taxed {
   background: whitesmoke;
 }
-.done .taxed .left {
+.step .taxed .left {
   color: black;
 }
-.done .taxed .right {
-  ont-weight: bold;
+.step .taxed .right {
+  font-weight: bold;
   font-size: 17px;
 }
-.done .address-list .address .right {
+.step .address-list .address .right {
   width: 100%;
 }
-.done .address-list .email .right {
+.step .address-list .email .right {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
   padding: 0;
   white-space: nowrap;
 }
-.done .address-list .item {
+.step .address-list .item {
   flex-wrap: wrap;
 }
-.done .address-list .left {
+.step .address-list .left {
   display: none;
 }
-.done .address-list .textedit,
-.done .address-list .textnonedit,
-.done .address-list .select {
+.step .address-list .textedit,
+.step .address-list .textnonedit,
+.step .address-list .select {
   min-width: 0;
   width: auto;
   padding-right: 5px;
@@ -1063,38 +1117,6 @@ table.payment-info .visa-info {
   word-wrap: normal;
   word-break: normal;
   line-height: normal;
-}
-.step {
-  padding: 10px;
-  width: 250px;
-}
-.content {
-  transition: width 0.5s, min-height 0.8s;
-  position: relative;
-}
-#step-buy {
-  display: none;
-  transition: 0.3s;
-}
-.review #step-buy {
-  display: block;
-}
-.review .step {
-  width: auto;
-  padding: 0;
-}
-.review .content {
-  padding: 10px;
-}
-.review.editable-subscribe {
-  width: 600px;
-}
-.review .item {
-  font-size: 14px;
-  width: auto;
-}
-.review .item .left {
-  width: 150px;
 }
 .req .left:after {
   content: "*";

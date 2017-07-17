@@ -1,5 +1,23 @@
 // out: null
 //new subscription
+
+/*steps
+1. Before start hidden
+2. opened
+content in abs position,
+all fields editable,
+step name is active,
+edit button not visible wizard done button hidden,
+next but vizible,
+buy button hidden
+review font is larger,
+some css added done button vizible,
+next button hidden buy button hidden 3. minimized content in rel position,
+all fields uneditable,
+next button hidden,
+done button hiddden step name is not active inactive cards hidden,
+cards extra divs hidden buy button hidden Wizard edit button visible review edit button hidden step styling before start ->(wizard)open <----->(wizard)minimized ->(wizard)open ->(review)minimized <---->(review) open*/
+
 .editable-subscribe {
     width: 800px;
     position: relative;
@@ -7,6 +25,7 @@
     margin: auto;
     transition: .5s;
     background: #ddd;
+    &.review-container {}
     .h1 {
         font-weight: normal;
         font-size: 20px;
@@ -24,16 +43,6 @@
         &:hover {
             background: @gold;
         }
-        &.edit {
-            display: initial;
-            width: 60px;
-            height: 25px;
-            margin: 0;
-            font-size: 13px;
-            padding: 0;
-            background: #dedede;
-            color: @blue;
-        }
     }
     .h2 {
         font-size: 16px;
@@ -44,27 +53,6 @@
         padding-bottom: 10px 0;
         width: 100%;
         text-align: left;
-    }
-    .h3 {
-        .h2;
-        border-bottom: none;
-        font-family: 'Roboto Slab';
-        display: flex;
-        align-items: center;
-        background: #ccc;
-        padding: 5px;
-        justify-content: space-between;
-        &.active {
-            background: @sky;
-            .edit {
-                display: none;
-            }
-        }
-        &.edit-progress {
-            .edit {
-                display: none;
-            }
-        }
     }
     .help-line {
         width: 100%;
@@ -106,82 +94,154 @@
     display: block;
 }
 
-.content {
-    &.open {
-        position: absolute;
-        top: 41px;
-        left: 250px;
-        width: ~"calc(100% - 250px)";
-        height: ~"calc(100% - 41px)";
-        padding: 10px;
-        background: #f5f5f5;
-    }
-}
-
-.taxed,
-.help-line,
-.required,
-.donebtn,
-#new-card,
-.detail-total {
-    display: none
-}
-
-.not-started {
+#step-buy {
     display: none;
 }
 
-.detail-total {
-    .textedit,
-    .textnonedit,
-    .select {
-        font-size: 19px;
-        text-align: center;
-        width: 100%;
-        margin: 0;
-        background: none;
-        white-space: nowrap;
-        border: none;
-        position: relative;
-        box-shadow: none;
-        color: #006676;
-        line-height: normal;
-        .arrow-up {
-            display: none
-        }
-    }
-    .item {
-        border-bottom: 1px solid #ccc;
-    }
-    .left {
-        font-size: 14px;
-        //
-        width: 100%;
-        text-align: center;
-        margin: 0;
-    }
-}
-
-#add-cc {
-    display: flex;
-    justify-content: space-between;
-    color: #009bb3;
-    font-size: 13px;
-    .add-item {
+.step {
+    padding: 10px;
+    width: 250px;
+    .h3 {
+        .h2;
+        border-bottom: none;
+        font-family: 'Roboto Slab';
         display: flex;
         align-items: center;
+        padding: 5px;
+        justify-content: space-between;
+        background: #ccc;
+        .edit {
+            display: block;
+            width: 60px;
+            height: 25px;
+            margin: 0;
+            font-size: 13px;
+            padding: 0;
+            background: #dedede;
+            color: @blue;
+        }
     }
-    .link {
-        font-style: italic;
-        text-decoration: underline;
+    .taxed,
+    .help-line,
+    .required,
+    .donebtn,
+    #new-card,
+    .detail-total {
+        display: none
     }
-}
-
-.next {
-    display: block;
-}
-
-.done {
+    &.not-started {
+        display: none;
+    }
+    &.open {
+        .h3 {
+            background: @sky;
+            .edit {
+                display: none;
+            }
+        }
+        .content {
+            position: absolute;
+            top: 41px;
+            left: 250px;
+            width: ~"calc(100% - 250px)";
+            height: ~"calc(100% - 41px)";
+            padding: 10px;
+            background: #f5f5f5;
+        }
+        .detail-total {
+            .textedit,
+            .textnonedit,
+            .select {
+                font-size: 19px;
+                text-align: center;
+                width: 100%;
+                margin: 0;
+                background: none;
+                white-space: nowrap;
+                border: none;
+                position: relative;
+                box-shadow: none;
+                color: #006676;
+                line-height: normal;
+                .arrow-up {
+                    display: none
+                }
+            }
+            .item {
+                border-bottom: 1px solid #ccc;
+            }
+            .left {
+                font-size: 14px;
+                //
+                width: 100%;
+                text-align: center;
+                margin: 0;
+            }
+        }
+        #add-cc {
+            display: flex;
+            justify-content: space-between;
+            color: #009bb3;
+            font-size: 13px;
+            .add-item {
+                display: flex;
+                align-items: center;
+            }
+            .link {
+                font-style: italic;
+                text-decoration: underline;
+            }
+        }
+        .next {
+            display: block;
+        }
+    }
+    & .review {
+        .h3 {
+            .edit {
+                display: none;
+            }
+        }
+        #step-buy {
+            display: block
+        }
+        .step {
+            width: auto;
+            padding: 0
+        }
+        .content {
+            padding: 10px;
+        }
+        .item {
+            font-size: 14px;
+            width: auto;
+            .left {
+                width: 150px
+            }
+        }
+    }
+    &.done {
+        #step-buy {
+            display: block
+        }
+        .step {
+            width: auto;
+            padding: 0
+        }
+        .content {
+            padding: 10px;
+        }
+        .item {
+            font-size: 14px;
+            width: auto;
+            .left {
+                width: 150px
+            }
+        }
+    }
+    .content {
+        position: relative;
+    }
     #my-cards {
         img,
         .radio,
@@ -193,7 +253,8 @@
     .donebtn,
     .h2,
     .next,
-    #add-cc {
+    #add-cc,
+    #calculate {
         display: none
     }
     .item {
@@ -239,8 +300,7 @@
             color: black
         }
         .right {
-            ;
-            ont-weight: bold;
+            font-weight: bold;
             font-size: 17px;
         }
     }
@@ -275,44 +335,6 @@
             word-wrap: normal;
             word-break: normal;
             line-height: normal;
-        }
-    }
-}
-
-.step {
-    padding: 10px;
-    width: 250px;
-}
-
-.content {
-    transition: width .5s, min-height .8s;
-    position: relative;
-}
-
-#step-buy {
-    display: none;
-    transition: .3s
-}
-
-.review {
-    #step-buy {
-        display: block
-    }
-    .step {
-        width: auto;
-        padding: 0
-    }
-    .content {
-        padding: 10px;
-    }
-    &.editable-subscribe {
-        width: 600px;
-    }
-    .item {
-        font-size: 14px;
-        width: auto;
-        .left {
-            width: 150px
         }
     }
 }

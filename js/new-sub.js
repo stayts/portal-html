@@ -10,97 +10,79 @@ jQuery(document).ready(function ($) {
     var fields = $(".textedit, .dropdown");
     //reset the styling
     $("*").removeClass('done, visited, open');
-    $(".content").addClass("not-started");
-    $(".h3").addClass("edit-progress");
-    $(".step:first").find(".content").removeClass("not-started").addClass("open visited");
-    $(".step:first").find(".h3").removeClass("edit-progress").addClass("active");
+    $(".step").addClass("not-started");
+    $(".step:first").removeClass("not-started").addClass("open ");
     //make fields editable
-    $("#next1").addClass("inactive").closest(".step").find(input).attr('contenteditable', 'true');
+    $("#next1").addClass("inactive");
     //add functions
     selectList();
     calculate();
     selectCard();
-
+    contentEdit();
     //step click function
     for (var i = 1; i <= $(".step").length; i++) {
         (function (i) {
                 var btnext = $("#next" + i);
                 var edit = $("#edit" + i);
-                var stnext = $("#step" + (i + 1));
-                var targetnext = stnext.find(".content");
-                var step = $("#step" + i);
-                var target = step.find(".content");
+                var targetnext = $("#step" + (i + 1));
+                var target = $("#step" + i);
                 var btdone = $("#done" + i);
                 fields.blur(inValid);
                 fields.click(resetKey);
-
                 btnext.click(nextStep);
+                btdone.click(doneEdit);
+                contentEdit();
 
-                btdone.click(function () {
-
+                function doneEdit() {
                     target.hide().addClass("done").removeClass("open").delay(100).show('slide', 200);
-                    target.find("#calculate").hide();
-                    target.find(input).attr('contenteditable', 'false');
+
                     showNext();
-                    $(".h3").removeClass("active edit-progress");
+
                     $(".editable-subscribe").addClass("review");
                     $(this).hide();
-                    $("#step-buy").hide();
+                    $("#step-buy").show();
+                    contentEdit();
 
 
 
+                }
 
-                });
-                //   var fromstep = target.closest(".open").attr("id");
+                function contentEdit() {
+                    if (target.hasClass('open')) {
+                        alert("boo");
+                        target.find(".textedit").attr('contenteditable', 'true');
+                    }
+
+                }
+
                 function nextStep() {
 
                     target.hide().addClass("done").removeClass("open").delay(100).show('slide', 200);
-                    target.find("#calculate").hide();
-                    target.find(input).attr('contenteditable', 'false');
-                    targetnext.find(input).attr('contenteditable', 'true');
-                    targetnext.hide().removeClass("done not-started").addClass("open visited").delay(100).show('fade', 200);
+                    targetnext.hide().removeClass("done not-started").addClass("open ").delay(100).show('fade', 200);
                     showNext();
-                    step.find(".h3").removeClass("active edit-progress");
-                    stnext.find(".h3").addClass("active");
-
-
+                    contentEdit();
 
                     //specific pages
                     if (target.hasClass("cust-info")) {
                         $(".taxed").show();
                     }
-                    if (target.hasClass("cust-payment")) {
-                        $(".editable-subscribe").addClass("review");
-                        $("#step-buy").show();
-                        $(".next").hide();
+                    if (target.find(".content").hasClass("cust-payment")) {
+                        $(".editable-subscribe").addClass("review-container");
+                        $(".step").addClass("review");
                     }
 
 
                 }
                 edit.click(function () {
-                    stepBuy();
+
 
                     $(".editable-subscribe").removeClass("review");
-                    $(".h3").addClass("edit-progress");
-                    $(".h3").removeClass("active");
-                    step.find(".h3").addClass("active");
-
-                    $(".open").find(input).attr('contenteditable', 'false');
-                    $(".open").addClass("done not-started").removeClass("open visited").delay(100).show('fade', 200);
-                    target.find(input).attr('contenteditable', 'true');
-                    step.find(".h3").addClass("active");
-                    step.find(".donebtn").show();
+                    $(".open").addClass("done ").removeClass("open ").delay(100).show('fade', 200);
                     target.hide().addClass("open").removeClass("done").delay(200).show('slide', 200);
-                    target.find("#calculate").show();
                     showNext();
-                    /*                        if (target.hasClass("cust-info")) {
-                                            $(".taxed").show();
-                                        }*/
-                    if (target.hasClass("cust-payment")) {
+                    contentEdit();
 
-                    }
-
-                })
+                });
                 var list = $(".select-list");
                 var help = $(".help-line");
 
@@ -122,7 +104,7 @@ jQuery(document).ready(function ($) {
                 function resetKey() {
                     var help = $(this).closest(".item").find(".help-line");
                     help.fadeIn();
-                    target.closest(".step").find('.detail-total').slideUp();
+                    target.find('.detail-total').slideUp();
                     $(this).removeClass("reqempty");
 
                     $(this).closest(".content").find(".required").text("").fadeOut();
