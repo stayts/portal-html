@@ -6,17 +6,22 @@
             My Subscription
         </div>
         <div id="step1" class="step">
+            <div class="h3 active">
+                <div>Details</div>
+                <button id="edit1" class="edit">Edit</button>
+            </div>
             <div class="cust-details content">
                 <div class="h2">
                     Details
                 </div>
                 <div class="detail-values">
-                    <div class="users item">
+                    <div class="required"></div>
+                    <div class="item req">
                         <div class="left">Number of seats</div>
                         <div class="right textedit">1000</div>
                         <div class="help-line">Enter the number of seats required. </div>
                     </div>
-                    <div class="length item">
+                    <div class=" item">
                         <div class="left">Contract Length</div>
                         <div class="right dropdown">
                             <legend class="select">
@@ -35,7 +40,7 @@
                         <div class="help-line">Choose the length of the contract </div>
 
                     </div>
-                    <div class="type item ">
+                    <div class=" item ">
                         <div class="left">Billing Period</div>
                         <div class="right dropdown">
                             <legend class="select">
@@ -51,17 +56,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="help-line">Choose how often would you like us to bill you </div>
+                        <div class="help-line ">Choose how often would you like us to bill you </div>
                     </div>
                     <button id="calculate">Calculate the price</button>
                 </div>
                 <div class="detail-total">
-                    <div class="item  bill">
+                    <div class="item  ">
                         <div class="left">Bill Payment (quarterly billing)</div>
                         <div class="right textnonedit">$1000</div>
 
                     </div>
-                    <div class="item  usercost">
+                    <div class="item  ">
                         <div class="left">Cost per each user</div>
                         <div class="right textnonedit">$2,45</div>
                     </div>
@@ -71,31 +76,36 @@
                     </div>
 
                 </div>
-                <button id="edit1" class="edit">Edit Details</button>
 
-                <button id="next1" class="next">Enter Customer Info</button>
+                <button id="done1" class="donebtn">Done</button>
+                <button id="next1" class="next">Next</button>
             </div>
         </div>
         <div id="step2" class="step">
+            <div class="h3">
+                <div>Customer Info</div>
+                <button id="edit2" class="edit">Edit</button>
+            </div>
             <div class="cust-info content">
                 <div class="h2">
                     Customer Info
+
                 </div>
                 <div class="address-list">
-                    <div class="help-line" id="required">Required fields </div>
-                    <div class="name item">
+                    <div class="required"> </div>
+                    <div class=" item">
                         <div class="left">First Name</div>
                         <div class="right textedit">Jonathan</div>
                         <div class="left">Last Name</div>
                         <div class="right textedit">Simpson</div>
                     </div>
-                    <div class="address item ">
+                    <div class=" item ">
                         <div class="left">Address line 1 </div>
                         <div class="right textedit">Old Quarry Lane South</div>
                         <div class="left">Address line 2</div>
                         <div class="right textedit">Building 18, Cupboard under the stairs</div>
                     </div>
-                    <div class="zip item ">
+                    <div class=" item ">
                         <div class="left">ZIP / Postal code / postcode</div>
                         <div class="right textedit">123456789</div>
 
@@ -104,7 +114,7 @@
                         <div class="left"> State / Province</div>
                         <div class="right textedit">Unusuallylongia</div>
                     </div>
-                    <div class="country  item req">
+                    <div class="item req">
                         <div class="left">Country</div>
                         <div class="right textedit">Solomon Islands</div>
                     </div>
@@ -113,63 +123,71 @@
                         <div class="right textedit">Jonathan.simpsonjunior@somecompany.com</div>
                     </div>
                 </div>
-                <button id="next2" class="next">Enter Payment Info</button>
-                <button id="edit2" class="edit">Edit Customer Info</button>
+                <button id="next2" class="next">Next</button>
+                <button id="done2" class="donebtn">Done</button>
             </div>
         </div>
         <div id="step3" class="step">
+            <div class="h3">
+                <div>Payment Info</div>
+                <button id="edit3" class="edit">Edit</button>
+            </div>
             <div class="cust-payment content">
                 <div class="h2">
                     Payment Info
                 </div>
                 <div id="my-cards">
 
+                    <div class="head">
+                        <div class="radio-head">
 
-                    <table id="cards">
-                        <tr class="head">
-                            <th>Your Cards</th>
-                            <th>Name on card</th>
-                            <th>Expiration</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="radio"></div><img src="/images/visa.png">Visa ending in 3456</td>
-                            <td>Jonathan Smith</td>
-                            <td> May 23 2022</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="radio"></div><img src="/images/visa.png">Visa ending in 3456</td>
-                            <td>Jonathan Smith</td>
-                            <td> May 23 2022</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="radio"></div><img src="/images/visa.png">Visa ending in 3456</td>
-                            <td>Jonathan Smith</td>
-                            <td> May 23 2022</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="radio"></div><img src="/images/visa.png">Visa ending in 3456</td>
-                            <td>Jonathan Smith</td>
-                            <td> May 23 2022</td>
-                        </tr>
-                        <tr class="addcc">
-                            <td>
-                                <div class="material-icons add" id="add-card">add_circle
-                                </div> Add Credit Card</td>
+                        </div>
+                        <div class="card-one">Card</div>
+                        <div class="card-two">Name</div>
+                        <div class="card-three">Exp.</div>
+                    </div>
 
-                            <td colspan="2">
-                                <div class="material-icons add" id="contact-sales">account_balance_wallet
-                                </div> Use Other Payment Method</td>
-                        </tr>
+                    <div class="card active">
+                        <!--one card is always active-->
+                        <div class="radio">
+                            <img src="/images/visa.png">
+                        </div>
+                        <div class="card-one">Visa ending in 3456</div>
+                        <div class="card-two">Jonathan Smith</div>
+                        <div class="card-three">May 23 2022</div>
+                    </div>
+                    <div class="card">
+                        <div class="radio">
+                            <img src="/images/visa.png">
+                        </div>
+                        <div class="card-one">Visa ending in 3456</div>
+                        <div class="card-two">Jonathan Smith</div>
+                        <div class="card-three">May 23 2022</div>
+                    </div>
+                    <div class="card">
+                        <div class="radio">
+                            <img src="/images/visa.png">
+                        </div>
+                        <div class="card-one">Visa ending in 3456</div>
+                        <div class="card-two">Jonathan Smith</div>
+                        <div class="card-three">May 23 2022</div>
+                    </div>
 
-
-                    </table>
                 </div>
+                <div id="add-cc">
+                    <div class="add-item">
+                        <div class="material-icons add" id="add-card">add_circle
+                        </div>
+                        <div class="link">Add Credit Card</div>
+                    </div>
+                    <div class="add-item">
 
+                        <div class="link">Use Other Payment Method</div>
+                        <div class="material-icons add" id="contact-sales">account_balance_wallet
+                        </div>
+                    </div>
 
+                </div>
                 <div id="new-card">
                     <div class="firstname item ">
                         <div class="left">Credit Card number</div>
@@ -186,8 +204,8 @@
                         <div class="right textedit">John Smith</div>
                     </div>
                 </div>
-                <button id="next3" class="next">Use this Card</button>
-                <button id="edit3" class="edit">Edit Payment</button>
+                <button id="done3" class="donebtn">Done</button>
+                <button id="next3" class="next">Next</button>
             </div>
 
         </div>

@@ -75,7 +75,6 @@ body {
     font-family: arial, sans-serif;
     font-size: 14px;
     color: #3a435c;
-    line-height: 20px;
 }
 
 * {
@@ -145,6 +144,15 @@ body {
     }
 }
 
+.add {
+    color: @red;
+    font-size: 29px;
+    margin-right: 5px;
+    margin-left: 5px;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
 .number,
 .name,
 .type,
@@ -154,7 +162,6 @@ body {
 .provider,
 .users,
 .calc,
-.item,
 {
     display: flex;
     width: 100%;
@@ -224,11 +231,8 @@ table&.payment-info {
 //editable styles
 [contenteditable="true"] {
     .select;
-    min-height: 36px;
-    line-height: 22px;
     display: flex;
     align-items: center;
-    height: auto;
     white-space: nowrap;
     overflow: hidden;
     br {
@@ -258,6 +262,7 @@ table&.payment-info {
     box-shadow: inset 0px 0px 2px grey;
     word-wrap: break-word;
     word-break: break-all;
+    line-height: 35px;
     color: black;
     &:hover,
     &:focus {
@@ -349,7 +354,6 @@ table&.payment-info {
 
 .status {
     color: transparent;
-    line-height: 15px;
     margin-right: 50px;
     font-size: 12px;
     display: flex;
@@ -365,6 +369,12 @@ table&.payment-info {
             margin-right: 5px;
         }
     }
+}
+
+//temp: table from card pade in new subscription
+.inactive {
+    background: lightgrey !important;
+    color: grey !important
 }
 
 @import "menu.less";

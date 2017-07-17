@@ -100,7 +100,6 @@ body {
   font-family: arial, sans-serif;
   font-size: 14px;
   color: #3a435c;
-  line-height: 20px;
 }
 * {
   box-sizing: border-box;
@@ -161,6 +160,14 @@ body {
   line-height: 34px;
   text-align: center;
 }
+.add {
+  color: #e32048;
+  font-size: 29px;
+  margin-right: 5px;
+  margin-left: 5px;
+  vertical-align: middle;
+  text-decoration: none;
+}
 .number,
 .name,
 .type,
@@ -169,8 +176,7 @@ body {
 .date,
 .provider,
 .users,
-.calc,
-.item {
+.calc {
   display: flex;
   width: 100%;
   text-align: left;
@@ -239,12 +245,10 @@ table.payment-info .visa-info {
   box-shadow: inset 0px 0px 2px grey;
   word-wrap: break-word;
   word-break: break-all;
+  line-height: 35px;
   color: black;
-  min-height: 36px;
-  line-height: 22px;
   display: flex;
   align-items: center;
-  height: auto;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -275,6 +279,7 @@ table.payment-info .visa-info {
   box-shadow: inset 0px 0px 2px grey;
   word-wrap: break-word;
   word-break: break-all;
+  line-height: 35px;
   color: black;
 }
 .select:hover,
@@ -350,7 +355,6 @@ table.payment-info .visa-info {
 }
 .status {
   color: transparent;
-  line-height: 15px;
   margin-right: 50px;
   font-size: 12px;
   display: flex;
@@ -366,6 +370,10 @@ table.payment-info .visa-info {
   display: inline-block;
   font-size: 21px;
   margin-right: 5px;
+}
+.inactive {
+  background: lightgrey !important;
+  color: grey !important;
 }
 .slider-menu {
   -webkit-transition: width .2s;
@@ -790,91 +798,22 @@ table.payment-info .visa-info {
   }
 }
 .editable-subscribe {
-  background: #f5f5f5;
+  width: 800px;
   position: relative;
   min-height: 800px;
   margin: auto;
   transition: .5s;
-  width: 550px;
+  background: #ddd;
 }
 .editable-subscribe .h1 {
   font-weight: normal;
   font-size: 20px;
-  background: #b4b7be;
+  background: #9499aa;
   color: #3a435c;
   border-bottom: 1px solid #9499aa;
   margin: 0;
-}
-.editable-subscribe .h1 .title {
   width: 100%;
   padding: 0 20px;
-}
-.editable-subscribe .add {
-  color: #e32048;
-  font-size: 29px;
-  margin-right: 5px;
-  margin-left: 5px;
-  vertical-align: middle;
-  text-decoration: none;
-}
-.editable-subscribe .radio {
-  background: #ddd;
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin-right: 20px;
-  border-radius: 50%;
-  border: 1px solid grey;
-  box-shadow: inset 0px 0px 2px grey;
-  margin-left: 9px;
-  vertical-align: middle;
-}
-.editable-subscribe #cards {
-  border-collapse: collapse;
-  width: 100%;
-  border: none;
-}
-.editable-subscribe #cards .addcc {
-  border-top: 1px solid grey;
-}
-.editable-subscribe #cards .addcc:hover,
-.editable-subscribe #cards .addcc.active {
-  background: none;
-}
-.editable-subscribe #cards .addcc td {
-  color: #006676;
-  padding: 10px 0;
-  text-decoration: underline;
-  font-style: italic;
-}
-.editable-subscribe #cards img {
-  width: 40px;
-  vertical-align: middle;
-  margin: 5px 20px 5px 5px;
-  border: 1px solid grey;
-}
-.editable-subscribe .head {
-  border-bottom: 1px solid grey;
-  text-align: left;
-  color: #9499aa;
-}
-.editable-subscribe .head th {
-  font-weight: normal;
-}
-.editable-subscribe tr:hover,
-.editable-subscribe tr.active {
-  background: #f9b800;
-}
-.editable-subscribe tr:hover .radio:before,
-.editable-subscribe tr.active .radio:before {
-  background: #151f36;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  content: "";
-  margin: auto;
-  display: block;
-  margin-top: 2px;
 }
 .editable-subscribe button {
   cursor: pointer;
@@ -884,10 +823,15 @@ table.payment-info .visa-info {
 .editable-subscribe button:hover {
   background: #f9b800;
 }
-.editable-subscribe.in-process {
-  width: 800px;
-  min-height: 800px;
-  background: #dddddd;
+.editable-subscribe button.edit {
+  display: initial;
+  width: 60px;
+  height: 25px;
+  margin: 0;
+  font-size: 13px;
+  padding: 0;
+  background: #dedede;
+  color: #3a435c;
 }
 .editable-subscribe .h2 {
   font-size: 16px;
@@ -895,16 +839,38 @@ table.payment-info .visa-info {
   padding: 0;
   margin: 0;
   border-bottom: 1px solid #ccc;
-  line-height: 20px;
-  padding-bottom: 10px;
-}
-.editable-subscribe .h2 .title {
+  padding-bottom: 10px 0;
   width: 100%;
   text-align: left;
 }
+.editable-subscribe .h3 {
+  font-size: 16px;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px 0;
+  width: 100%;
+  text-align: left;
+  border-bottom: none;
+  font-family: 'Roboto Slab';
+  display: flex;
+  align-items: center;
+  background: #ccc;
+  padding: 5px;
+  justify-content: space-between;
+}
+.editable-subscribe .h3.active {
+  background: #26b6cc;
+}
+.editable-subscribe .h3.active .edit {
+  display: none;
+}
+.editable-subscribe .h3.edit-progress .edit {
+  display: none;
+}
 .editable-subscribe .help-line {
   width: 100%;
-  line-height: 17px;
   font-size: 13px;
   position: absolute;
   right: 0px;
@@ -914,32 +880,61 @@ table.payment-info .visa-info {
   background: #ffe8a6;
   padding: 2px 6px;
 }
-.editable-subscribe .item {
+.editable-subscribe .required {
+  width: 100%;
+  font-size: 13px;
+  position: absolute;
+  right: 0px;
+  border: 1px solid #f9b800;
+  font-weight: lighter;
+  top: 0;
+  background: #ffe8a6;
+  padding: 2px 6px;
+  background: #ffbdbd;
+}
+.item {
   height: auto;
-  border: none;
   display: block;
 }
-.editable-subscribe .left {
+.left {
   width: 100%;
   text-align: center;
   margin: 0;
-  line-height: 20px;
 }
-.editable-subscribe .right {
+.right {
   width: 100%;
   word-break: break-all;
 }
-.editable-subscribe .total {
+.total {
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
   margin-top: 5px;
   display: block;
 }
+.content.open {
+  position: absolute;
+  top: 41px;
+  left: 250px;
+  width: calc(100% - 250px);
+  height: calc(100% - 41px);
+  padding: 10px;
+  background: #f5f5f5;
+}
+.taxed,
+.help-line,
+.required,
+.donebtn,
+#new-card,
+.detail-total {
+  display: none;
+}
+.not-started {
+  display: none;
+}
 .detail-total .textedit,
 .detail-total .textnonedit,
 .detail-total .select {
   font-size: 19px;
-  line-height: 27px;
   text-align: center;
   width: 100%;
   margin: 0;
@@ -949,6 +944,7 @@ table.payment-info .visa-info {
   position: relative;
   box-shadow: none;
   color: #006676;
+  line-height: normal;
 }
 .detail-total .textedit .arrow-up,
 .detail-total .textnonedit .arrow-up,
@@ -957,62 +953,54 @@ table.payment-info .visa-info {
 }
 .detail-total .item {
   border-bottom: 1px solid #ccc;
-  padding-bottom: 5px;
-  margin-top: 5px;
-  display: block;
 }
 .detail-total .left {
-  line-height: 30px;
   font-size: 14px;
   width: 100%;
   text-align: center;
   margin: 0;
 }
-.edit {
-  display: none;
+#add-cc {
+  display: flex;
+  justify-content: space-between;
+  color: #009bb3;
+  font-size: 13px;
+}
+#add-cc .add-item {
+  display: flex;
+  align-items: center;
+}
+#add-cc .link {
+  font-style: italic;
+  text-decoration: underline;
 }
 .next {
   display: block;
 }
-.done {
-  padding-top: 0;
-}
-.done .edit {
-  display: block;
-}
-.done .next {
+.done #my-cards img,
+.done #my-cards .radio,
+.done #my-cards .head,
+.done #my-cards .card:not(.active) {
   display: none;
 }
-.done.cust-payment #my-cards tr.active {
-  background: none;
-  display: grid;
-  font-weight: normal;
-  padding: 4px 0;
-}
-.done.cust-payment #my-cards tr.active td {
-  border-bottom: 1px solid #ccc;
-  padding: 4px 0;
-}
-.done .detail-values,
-.done .address-list,
-.done .detail-total {
-  padding-top: 0;
+.done .donebtn,
+.done .h2,
+.done .next,
+.done #add-cc {
+  display: none;
 }
 .done .item {
   border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
-  margin-top: 4px;
   display: flex;
   align-items: flex-start;
+  padding: 5px;
 }
 .done .right {
   width: auto;
 }
 .done .textedit,
 .done .textnonedit,
-.done .select,
-.done tbody {
-  line-height: 18px;
+.done .select {
   font-size: 13px;
   width: 105px;
   text-align: left;
@@ -1025,32 +1013,28 @@ table.payment-info .visa-info {
   position: relative;
   box-shadow: none;
   color: #006676;
+  line-height: normal;
   font-family: arial, sans-serif;
 }
 .done .textedit .arrow-up,
 .done .textnonedit .arrow-up,
-.done .select .arrow-up,
-.done tbody .arrow-up {
+.done .select .arrow-up {
   display: none;
 }
 .done .left {
-  line-height: 18px;
   font-size: 13px;
   width: 105px;
   text-align: left;
-  margin: 0 5px;
+  margin-right: 5px;
 }
 .done .taxed {
   background: whitesmoke;
-  border: 1px solid #ccc;
-  padding: 5px 0;
-  margin-top: 0;
 }
 .done .taxed .left {
   color: black;
 }
 .done .taxed .right {
-  font-weight: bold;
+  ont-weight: bold;
   font-size: 17px;
 }
 .done .address-list .address .right {
@@ -1074,56 +1058,43 @@ table.payment-info .visa-info {
 .done .address-list .select {
   min-width: 0;
   width: auto;
-  padding-left: 0;
   padding-right: 5px;
   white-space: normal;
   word-wrap: normal;
   word-break: normal;
+  line-height: normal;
+}
+.step {
+  padding: 10px;
+  width: 250px;
 }
 .content {
-  margin: 0;
   transition: width 0.5s, min-height 0.8s;
-  padding: 20px;
   position: relative;
 }
-.done {
-  width: 250px;
-  padding: 5px 10px 5px 20px;
+#step-buy {
+  display: none;
+  transition: 0.3s;
+}
+.review #step-buy {
+  display: block;
+}
+.review .step {
+  width: auto;
+  padding: 0;
+}
+.review .content {
+  padding: 10px;
 }
 .review.editable-subscribe {
-  min-height: auto;
+  width: 600px;
 }
-.review .cust-details,
-.review .cust-info,
-.review .cust-payment {
-  padding: 10px 20px;
-}
-.review .done {
-  width: auto;
-}
-.review .done button {
-  width: 200px;
-}
-.review .done .textedit,
-.review .done .textnonedit,
-.review .done .select,
-.review .done tbody,
-.review .done .address-list .address .right,
-.review .done .left {
+.review .item {
   font-size: 14px;
-  line-height: 20px;
   width: auto;
 }
-.review .done .left {
-  width: 200px;
-}
-.step.open {
-  position: absolute;
-  top: 42px;
-  left: 250px;
-  width: calc(100% - 250px);
-  height: calc(100% - 42px);
-  background: #f5f5f5;
+.review .item .left {
+  width: 150px;
 }
 .req .left:after {
   content: "*";
@@ -1134,9 +1105,95 @@ table.payment-info .visa-info {
   transition: .2s;
   border-color: red;
 }
-.detail-values,
-.address-list,
-.detail-total {
+#my-cards {
+  width: 100%;
+}
+#my-cards .head {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+#my-cards .head .radio-head {
+  width: 62px;
+  padding-right: 5px;
   position: relative;
-  padding-top: 30px;
+}
+#my-cards .head .radio-head img {
+  width: 30px;
+  vertical-align: middle;
+  border: 1px solid grey;
+}
+#my-cards .head .radio-head:before {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  border: 1px solid #151f36;
+  vertical-align: middle;
+  margin-right: 5px;
+  box-shadow: inset 0px 0px 4px white;
+}
+#my-cards .head .radio-head:before {
+  display: none;
+}
+#my-cards .card-one {
+  width: 150px;
+}
+#my-cards .card-two {
+  flex-grow: 1;
+}
+#my-cards .card-three {
+  width: 100px;
+  text-align: right;
+}
+#my-cards .radio {
+  width: 62px;
+  padding-right: 5px;
+  position: relative;
+}
+#my-cards .radio img {
+  width: 30px;
+  vertical-align: middle;
+  border: 1px solid grey;
+}
+#my-cards .radio:before {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  border: 1px solid #151f36;
+  vertical-align: middle;
+  margin-right: 5px;
+  box-shadow: inset 0px 0px 4px white;
+}
+#my-cards .card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #909090;
+  border-width: 0 1px 1px 1px;
+  padding: 5px;
+  transition: .3s;
+}
+#my-cards .card:hover,
+#my-cards .card.active {
+  background: #f9b800;
+}
+#my-cards .card:hover .radio:before,
+#my-cards .card.active .radio:before {
+  background: #151f36;
+}
+#my-cards .card:hover .radio:after,
+#my-cards .card.active .radio:after {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  content: "";
+  border: 1px solid white;
+  top: 4px;
+  left: 2px;
+  position: absolute;
+  box-shadow: inset 0px 0px 1px white;
 }
