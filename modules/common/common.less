@@ -1,4 +1,86 @@
-@import "common.less";
+// out: null
+@import "colors.less";
+//fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
+//transitions
+.zero5 {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.rotate {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+a {
+    color: @link ;
+    text-decoration: none;
+}
+
+.grey {
+    color: @grey;
+}
+
+.sky {
+    color: @sky;
+}
+
+.grey-d {
+    color: @grey-d
+}
+
+.red {
+    color: @red
+}
+
+.gold-d {
+    color: #cc9500;
+}
+
+.hover {
+    background: #d5ecf0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.flex {
+    display: flex
+}
+
+.arrow-dwn {
+    float: right;
+    margin-top: 10px;
+    background: transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 6px solid @grey-d;
+    border-bottom: none;
+    -webkit-filter: opacity(.5);
+    filter: opacity(.5);
+    &.active,
+    &:hover {
+        background: transparent;
+        -webkit-filter: opacity(1);
+        filter: opacity(1);
+    }
+}
+
+.arrow-up {
+    .arrow-dwn;
+    margin-top: 12px;
+    border-bottom: 6px solid @grey-d;
+    border-top: none;
+}
+
 *:hover,
 *:focus {
     outline: none;
@@ -12,7 +94,6 @@
     src: local('Material Icons'), local('MaterialIcons-Regular')
 }
 
-//scaffolding
 #container {
     margin: 0 auto;
     max-width: 1000px;
@@ -30,7 +111,6 @@
     background: whitesmoke;
 }
 
-//main panel
 .page {
     font-family: sans-serif;
     width: 100%;
@@ -43,23 +123,13 @@
     animation: .1s ease-out 0s .1s slideInFromLeft;
 }
 
-table&.zebra {
-    border-collapse: collapse;
+.bar {
+    height: 10px;
     width: 100%;
-    border: 1px solid #ccc;
-    th,
-    td {
-        padding: 5px;
-        text-align: left;
-        border-bottom: 1px solid #ccc;
-    }
+    display: block;
 }
 
 //css reset
-a {
-    text-decoration: none;
-}
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -81,8 +151,6 @@ body {
     box-sizing: border-box
 }
 
-//edit icons
-//titles
 .h1 {
     line-height: 40px;
     margin: 0;
@@ -129,7 +197,6 @@ body {
     width: 40px;
     cursor: pointer;
     transition: .5s;
-    position: absolute;
     top: 0;
     right: 0;
     &:hover {
@@ -137,10 +204,29 @@ body {
     }
     &.edit,
     &.save {
+        position: absolute;
         font-size: 27px;
         color: white;
         line-height: 34px;
         text-align: center;
+    }
+}
+
+.done {
+    .edit {
+        display: block
+    }
+    .save {
+        display: none
+    }
+}
+
+.open {
+    .edit {
+        display: none
+    }
+    .save {
+        display: block
     }
 }
 
@@ -153,81 +239,16 @@ body {
     text-decoration: none;
 }
 
-.number,
-.name,
-.type,
-.SKU,
-.length,
-.date,
-.provider,
-.users,
-.calc,
-{
-    display: flex;
-    width: 100%;
-    text-align: left;
-    flex-grow: 0;
-    line-height: 36px;
-    border-bottom: 1px solid whitesmoke;
-    margin: auto;
-    height: 42px;
-}
-
 .right {
     // font-size: 16px;
-    font-family: 'Roboto Slab';
-    color: #006676;
     flex-shrink: 0;
     position: relative;
 }
 
-.left {
-    width: 150px;
-    color: #747988;
-    flex-shrink: 0;
-    font-weight: lighter;
-}
-
-.active_row .marker {
-    width: 1px;
-    background: @sky;
-    margin: 0;
-    padding: 0;
-}
-
-table&.payment-info {
-    border-collapse: collapse;
-    width: 100%;
-    border: none;
-    th,
-    td {
-        padding: 3px;
-        text-align: left;
-        border: none;
-        vertical-align: top;
-        border: none;
-    }
-    .visa-image {
-        width: 88px;
-    }
-    .visa-info {
-        width: 200px;
-    }
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.flex {
-    display: flex
-}
-
-.hover {
-    background: #d5ecf0;
-}
-
-//accordion
+.item {
+    height: auto;
+    display: block;
+} //accordion
 //editable styles
 [contenteditable="true"] {
     .select;
@@ -246,6 +267,23 @@ table&.payment-info {
     .hover
 }
 
+[contenteditable="false"],
+.done .select,
+.done .card.active {
+    text-align: left;
+    padding-left: 0;
+    margin: 0;
+    background: none;
+    height: auto;
+    white-space: normal;
+    border: none;
+    position: relative;
+    box-shadow: none;
+    .arrow-up {
+        display: none
+    }
+}
+
 //inputs
 .select {
     overflow: visible;
@@ -258,11 +296,11 @@ table&.payment-info {
     font-family: 'Roboto Slab';
     width: inherit;
     box-sizing: border-box;
-    height: 35px;
+    height: 31px;
     box-shadow: inset 0px 0px 2px grey;
     word-wrap: break-word;
     word-break: break-all;
-    line-height: 35px;
+    line-height: 30px;
     color: black;
     &:hover,
     &:focus {
@@ -285,100 +323,16 @@ table&.payment-info {
     display: inline-block;
 }
 
-.arrow-up {
-    float: right
-}
-
 .data {
-    padding: 0 10px;
+    padding: 5px 10px;
     &:hover,
     &:focus {
         .hover
     }
 }
 
-.static,
-.editable {
-    position: relative;
-    padding: 0 10px;
-}
-
-.editable {
-    display: none;
-    .right {
-        margin: 3px 10px;
-        width: 300px;
-    }
-    .rightbutton {
-        .right
-    }
-}
-
-.static {
-    .right {
-        margin: 3px 20px;
-        width: 100%;
-        flex-shrink: 1;
-    }
-    .rightbutton {
-        .right
-    }
-}
-
-.base,
-{
-    display: flex;
-    align-items: center;
-}
-
-.SKU .textedit,
-.number .textedit {
-    &:before {
-        content: 'SKU-';
-        height: 100%;
-        background: #b4b7be;
-        display: inline-block;
-        margin-left: -10px;
-        padding: 0 5px;
-        color: #ffffff;
-        margin-right: 5px;
-        border-right: 1px solid #009bb3;
-    }
-}
-
-.number .textedit {
-    &:before {
-        content: 'A-';
-    }
-}
-
-.status {
-    color: transparent;
-    margin-right: 50px;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    &.error {
-        color: #e32048;
-        &:before {
-            content: '\E888';
-            font-family: 'Material Icons';
-            color: #e32048;
-            display: inline-block;
-            font-size: 21px;
-            margin-right: 5px;
-        }
-    }
-}
-
-//temp: table from card pade in new subscription
 .inactive {
     background: lightgrey !important;
-    color: grey !important
+    color: grey !important;
+    pointer-events: none;
 }
-
-@import "menu.less";
-@import "users.less";
-@import "modal.less";
-@import "accordion.less";
-@import "new-sub.less";

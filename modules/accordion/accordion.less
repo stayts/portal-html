@@ -15,7 +15,7 @@
         margin: 0;
         font-weight: normal;
         font-family: sans-serif;
-        font-size: 13px;
+        font-size: 14px;
         display: flex;
         align-items: center;
         position: relative;
@@ -49,66 +49,19 @@
     font-weight: lighter;
 }
 
-.acc-title,
-.acc-head {
-    .number {
-        width: 70px
-    }
-    .name {
-        width: 200px
-    }
-    .type {
-        width: 80px
-    }
-    .length {
-        width: 70px
-    }
-    .provider {
-        width: 200px
-    }
-    .SKU {
-        width: 100px
-    }
-    .date {
-        width: 60px;
-        flex-grow: 1;
-        text-align: -webkit-right;
-    }
-}
-
 @media screen and (max-width: 999px) {
     .acc-head,
     .acc-title {
+        //place content which you want to show in smaller screens into the "base" div
         .more {
             display: none;
         }
         .base {
+            display: flex;
+            align-items: center;
             flex-grow: 1;
             >div {
                 flex-grow: 1
-            }
-        }
-        .name {
-            width: 200px;
-            text-align: right;
-        }
-        .ui-accordion-header-icon {
-            position: absolute;
-            bottom: 0;
-            height: 19px;
-            width: 100%;
-            text-align: center;
-            &:before {
-                font-family: 'Material Icons';
-                content: '\E5CE';
-                font-size: 25px;
-                color: #eee;
-                transition: all 2s linear;
-            }
-            &.ui-icon-triangle-1-e {
-                &:before {
-                    content: '\E5CF';
-                }
             }
         }
     }
@@ -117,9 +70,32 @@
 @media screen and (min-width: 1000px) {
     .accordion,
     .acc-title {
+        .base,
+        {
+            display: flex;
+            align-items: center;
+        }
         .more {
             display: flex;
             align-items: center;
         }
     }
+}
+
+.ui-accordion-header-icon&.ui-icon&.ui-icon-triangle-1-e {
+    position: absolute;
+    bottom: 40%;
+    right: 8px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 8px solid #ccc;
+}
+
+.ui-accordion-header-icon&.ui-icon&.ui-icon-triangle-1-s {
+    position: absolute;
+    bottom: 40%;
+    right: 8px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 8px solid #ccc;
 }

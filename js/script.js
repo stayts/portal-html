@@ -64,6 +64,4 @@ jQuery(document).ready(function ($) {
         $('#makeadmin-billing.menu-button').addClass('active');
     });
 
-
-
 });

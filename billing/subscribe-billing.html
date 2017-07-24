@@ -1,12 +1,13 @@
+<link rel="stylesheet" href="/css/new-sub.css">
 <div class="modal">
-
     <div class="editable-subscribe">
         <div class="close material-icons" id="closenew-sub">close</div>
         <div class="h1">
             My Subscription
         </div>
+        <div class="required"></div>
         <div id="step1" class="step">
-            <div class="h3 active">
+            <div class="h3 ">
                 <div>Details</div>
                 <button id="edit1" class="edit">Edit</button>
             </div>
@@ -15,10 +16,9 @@
                     Details
                 </div>
                 <div class="detail-values">
-                    <div class="required"></div>
                     <div class="item req">
                         <div class="left">Number of seats</div>
-                        <div class="right textedit">1000</div>
+                        <div class="right textedit numbersOnly">1000</div>
                         <div class="help-line">Enter the number of seats required. </div>
                     </div>
                     <div class=" item">
@@ -26,7 +26,7 @@
                         <div class="right dropdown">
                             <legend class="select">
                                 <div class="input-field">1 year contract</div>
-                                <div class="arrow-up">▼</div>
+                                <div class="arrow-up"></div>
                             </legend>
                             <div class="select-list">
                                 <div class="data" tabindex="0">
@@ -38,14 +38,13 @@
                             </div>
                         </div>
                         <div class="help-line">Choose the length of the contract </div>
-
                     </div>
                     <div class=" item ">
                         <div class="left">Billing Period</div>
                         <div class="right dropdown">
                             <legend class="select">
                                 <div class="input-field">Annualy</div>
-                                <div class="arrow-up">▼</div>
+                                <div class="arrow-up"></div>
                             </legend>
                             <div class="select-list">
                                 <div class="data" tabindex="0">
@@ -63,22 +62,20 @@
                 <div class="detail-total">
                     <div class="item  ">
                         <div class="left">Bill Payment (quarterly billing)</div>
-                        <div class="right textnonedit">$1000</div>
-
+                        <div class="right ">$1000</div>
                     </div>
                     <div class="item  ">
                         <div class="left">Cost per each user</div>
-                        <div class="right textnonedit">$2,45</div>
+                        <div class="dollars right">2,45</div>
                     </div>
                     <div class="item taxed">
-                        <div class="left">Due today including taxes</div>
-                        <div class="right textnonedit">$1000</div>
+                        <div class="left">Due today (not taxed yet)</div>
+                        <div class=" dollars right">1000,00</div>
                     </div>
-
                 </div>
-
-                <button id="done1" class="donebtn">Done</button>
-                <button id="next1" class="next">Next</button>
+                <div class="bar"></div>
+                <button class="donebtn">Done. Return to order review</button>
+                <button class="next inactive">Next: Fill out the address</button>
             </div>
         </div>
         <div id="step2" class="step">
@@ -92,39 +89,53 @@
 
                 </div>
                 <div class="address-list">
-                    <div class="required"> </div>
-                    <div class=" item">
-                        <div class="left">First Name</div>
-                        <div class="right textedit">Jonathan</div>
-                        <div class="left">Last Name</div>
-                        <div class="right textedit">Simpson</div>
+                    <div class="multifield">
+                        <div class="name item">
+                            <div class="left">First Name</div>
+                            <div class="right textedit"></div>
+                        </div>
+                        <div class=" item">
+                            <div class="left">Last Name</div>
+                            <div class="right textedit"></div>
+                        </div>
                     </div>
-                    <div class=" item ">
-                        <div class="left">Address line 1 </div>
-                        <div class="right textedit">Old Quarry Lane South</div>
-                        <div class="left">Address line 2</div>
-                        <div class="right textedit">Building 18, Cupboard under the stairs</div>
+                    <div class="address ">
+                        <div class=" item ">
+                            <div class="left">Address line 1 </div>
+                            <div class="right textedit"></div>
+                        </div>
+                        <div class=" item">
+                            <div class="left">Address line 2</div>
+                            <div class="right textedit"></div>
+                        </div>
                     </div>
-                    <div class=" item ">
-                        <div class="left">ZIP / Postal code / postcode</div>
-                        <div class="right textedit">123456789</div>
-
-                        <div class="left">City / town</div>
-                        <div class="right textedit">Longnamecity</div>
-                        <div class="left"> State / Province</div>
-                        <div class="right textedit">Unusuallylongia</div>
+                    <div class="multifield">
+                        <div class="zip item ">
+                            <div class="left">ZIP / Postal code / postcode</div>
+                            <div class="right textedit"></div>
+                        </div>
+                        <div class=" item">
+                            <div class="left">City / town</div>
+                            <div class="right textedit"></div>
+                        </div>
+                        <div class="state item">
+                            <div class="left"> State / Province</div>
+                            <div class="right textedit"></div>
+                        </div>
                     </div>
-                    <div class="item req">
-                        <div class="left">Country</div>
-                        <div class="right textedit">Solomon Islands</div>
-                    </div>
-                    <div class="email item req">
-                        <div class="left">email</div>
-                        <div class="right textedit">Jonathan.simpsonjunior@somecompany.com</div>
+                    <div class="multifield">
+                        <div class="item req">
+                            <div class="left">Country</div>
+                            <div class="right textedit"></div>
+                        </div>
+                        <div class="email item req">
+                            <div class="left">email</div>
+                            <div class="right textedit"></div>
+                        </div>
                     </div>
                 </div>
-                <button id="next2" class="next">Next</button>
-                <button id="done2" class="donebtn">Done</button>
+                <button class="next">Next: fill out the credit card info</button>
+                <button class="donebtn">Done. Return to order review</button>
             </div>
         </div>
         <div id="step3" class="step">
@@ -137,16 +148,12 @@
                     Payment Info
                 </div>
                 <div id="my-cards">
-
                     <div class="head">
-                        <div class="radio-head">
-
-                        </div>
+                        <div class="radio-head"></div>
                         <div class="card-one">Card</div>
                         <div class="card-two">Name</div>
                         <div class="card-three">Exp.</div>
                     </div>
-
                     <div class="card active">
                         <!--one card is always active-->
                         <div class="radio">
@@ -172,47 +179,116 @@
                         <div class="card-two">Jonathan Smith</div>
                         <div class="card-three">May 23 2022</div>
                     </div>
-
                 </div>
                 <div id="add-cc">
-                    <div class="add-item">
-                        <div class="material-icons add" id="add-card">add_circle
+                    <div class="add-item" id="add-card">
+                        <div class="material-icons add">add_circle
                         </div>
                         <div class="link">Add Credit Card</div>
                     </div>
-                    <div class="add-item">
-
-                        <div class="link">Use Other Payment Method</div>
-                        <div class="material-icons add" id="contact-sales">account_balance_wallet
+                    <div class="add-item" id="contact-sales">
+                        <div class="material-icons add">account_balance_wallet
                         </div>
+                        <div class="link">Use Other Payment Method</div>
                     </div>
-
                 </div>
                 <div id="new-card">
-                    <div class="firstname item ">
-                        <div class="left">Credit Card number</div>
-                        <div class="right textedit">
+                    <div class="h4">Credit Card Information
+                    </div>
+                    <div id="ccinfo">
+                        <div class="multifield">
+                            <div class="ccnum item req">
+                                <div class="left">Credit card number</div>
+                                <div class="numbersOnly right textedit">4441 78709 5676 6663</div>
+                            </div>
+                            <div class="ccexp item ">
+                                <div class="left">exp date</div>
+                                <div class="numbersOnly right textedit date">12.01.2017</div>
+                            </div>
+                            <div class="ccccv item">
+                                <div class=" left ">CCV</div>
+                                <div class="right textedit numbersOnly">
+                                    441</div>
+                            </div>
+                        </div>
+                        <div class="h4">Billing address for Credit Card
+
+
+                            <div class="checkboxes">
+                                <div class="imgCheck enabled">
+                                    <label>Same as Customer address</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="lastname item ">
-                        <div class="left">exp date</div>
-                        <div class="right textedit">
-                            John Green</div>
-                    </div>
-                    <div class="address item">
-                        <div class="left">Name on the card</div>
-                        <div class="right textedit">John Smith</div>
+                    <div id="billincc"></div>
+                    <div id="ccaddr">
+                        <div class="multifield">
+                            <div class=" item">
+                                <div class="left">First Name</div>
+                                <div class="right textedit"></div>
+                            </div>
+                            <div class=" item">
+                                <div class="left">Last Name</div>
+                                <div class="right textedit"></div>
+                            </div>
+                        </div>
+                        <div class="address ">
+                            <div class=" item ">
+                                <div class="left">Address line 1 </div>
+                                <div class="right textedit"></div>
+                            </div>
+                            <div class=" item">
+                                <div class="left">Address line 2</div>
+                                <div class="right textedit"></div>
+                            </div>
+                        </div>
+                        <div class="multifield">
+                            <div class=" item ">
+                                <div class="left">ZIP / Postal code / postcode</div>
+                                <div class="right textedit"></div>
+                            </div>
+                            <div class=" item">
+                                <div class="left">City / town</div>
+                                <div class="right textedit"></div>
+                            </div>
+                            <div class=" item">
+                                <div class="left"> State / Province</div>
+                                <div class="right textedit"></div>
+                            </div>
+                        </div>
+                        <div class="multifield">
+                            <div class="item req">
+                                <div class="left">Country</div>
+                                <div class="right textedit"></div>
+                            </div>
+                            <div class="email item req">
+                                <div class="left">email</div>
+                                <div class="right textedit"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button id="done3" class="donebtn">Done</button>
-                <button id="next3" class="next">Next</button>
+                <button class="donebtn ">Done. Return to order review</button>
+                <button class="next ">Use this card for payment. Next: Review your order</button>
             </div>
-
         </div>
-        <button id="step-buy" class="gold">OK</button>
-
+        <button id="step-buy">OK</button>
     </div>
-
-
 </div>
-<script src="../js/new-sub.js"></script>
+<script src="../js/new-sub.js "></script>
+<script>
+    jQuery(document).ready(function($) {
+        //close without saving
+        $("#closenew-sub").click(function() {
+            $(".modal").fadeOut();
+        });
+        //reset the styling
+        $("*").removeClass('done, visited, open');
+        $(".step").addClass("not-started");
+        $(".step:first").removeClass("not-started").addClass("open ").find(".textedit").attr('contenteditable', 'true');
+        $(".step:first").find(".next").addClass("inactive");
+        $(".step:first").find(".req .right").addClass('req-text');
+    });
+
+</script>
