@@ -11,20 +11,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/modules/common/common.css">
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <style>
     /*separate styling for billing (just to make it different)*/
-        
+
         .menu {
             background: #747988;
         }
-        
+
         .link-content {
             color: white;
             text-shadow: 0 0 1px black;
         }
-        
+
         .menu-button:hover,
         .menu-button.active {
             background: #009bb3;
@@ -46,7 +46,7 @@
             <div class="menu">
                 <div class="opennav material-icons">arrow_forward</div>
                 <ul class="slider-menu" w3-include-html="billing/menu-billing.html"></ul>
-                <ul class="slider-menu" w3-include-html="/trial.html"></ul>
+                <ul class="slider-menu" w3-include-html="/modules/trial/trial.html"></ul>
                 <ul class="bottom-menu" w3-include-html="/help/helpmenu.html"></ul>
             </div>
             <div class="page" id="page-content" w3-include-html="billing/home-billing.html">
@@ -57,6 +57,15 @@
 </body>
 <script>
     w3.includeHTML();
+
+</script>
+<script>
+    jQuery(document).ready(function($) {
+
+        $.getScript('/modules/common/common.js', function() {
+            alert('Load common was performed.');
+        });
+    });
 
 </script>
 

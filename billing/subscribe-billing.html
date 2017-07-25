@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/new-sub.css">
+<link rel="stylesheet" href="../modules/new-sub/new-sub.css">
 <div class="modal">
     <div class="editable-subscribe">
         <div class="close material-icons" id="closenew-sub">close</div>
@@ -276,19 +276,4 @@
         <button id="step-buy">OK</button>
     </div>
 </div>
-<script src="../js/new-sub.js "></script>
-<script>
-    jQuery(document).ready(function($) {
-        //close without saving
-        $("#closenew-sub").click(function() {
-            $(".modal").fadeOut();
-        });
-        //reset the styling
-        $("*").removeClass('done, visited, open');
-        $(".step").addClass("not-started");
-        $(".step:first").removeClass("not-started").addClass("open ").find(".textedit").attr('contenteditable', 'true');
-        $(".step:first").find(".next").addClass("inactive");
-        $(".step:first").find(".req .right").addClass('req-text');
-    });
-
-</script>
+<script src="../modules/new-sub/new-sub.js "></script>

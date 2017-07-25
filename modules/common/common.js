@@ -1,5 +1,7 @@
 var st = $(this).closest(".step");
 var nextst = $(this).closest(".step").nextAll("div.step:first");
+var list = $(".select-list");
+var help = $(".help-line");
 
 function saveStep() {
 
@@ -11,8 +13,7 @@ function saveStep() {
 }
 
 function nextStep() {
-
-
+    saveStep();
     nextst.hide().removeClass("done not-started").addClass("open").find(".textedit").attr('contenteditable', 'true');
     nextst.delay(100).show('fade', 200);
     nextst.find(".req .right").addClass('req-text');
@@ -48,6 +49,40 @@ function resetKey() {
     $(this).removeClass("reqempty");
 }
 
+function inValid() {
+    help.fadeOut();
+    list.delay(100).slideUp();
+    if ($(this).hasClass('req-text')) {
+
+        if ($(this).text().length === 0) {
+            $(".required").text("Fill all required fileds").fadeIn();
+            $(this).addClass("reqempty");
+
+        } else {
+            $(this).removeClass("reqempty");
+        }
+    }
+    $.each((st.find('.req-text')), function () {
+        if ($(this).text() === '') {
+            alert("yup");
+            $(".required").text("Fill all required fileds").fadeIn();
+            $("#calculate").addClass("inactive");
+            st.find(".next").addClass("inactive");
+            return false;
+
+        } else {
+
+            $(".required").text("").fadeOut();
+            if (st.find('#calculate').length === 0) {
+                st.find(".next").removeClass("inactive");
+            } else {
+                $("#calculate").removeClass("inactive");
+            }
+
+        }
+    });
+
+}
 
 
 function selectList() {
