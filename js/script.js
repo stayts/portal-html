@@ -1,5 +1,12 @@
 jQuery(document).ready(function ($) {
 
+
+    $.getScript('/modules/common/common.js', function () {
+        alert('Load common was performed.');
+    });
+
+
+
     $('#home-portal.menu-button').addClass('active');
     $('#home-billing.menu-button').addClass('active');
     //methods
@@ -47,9 +54,12 @@ jQuery(document).ready(function ($) {
         $("#page-content").load("/billing/home-billing.html");
         $('#home-billing.menu-button').addClass('active');
     });
-    $("#subscriptions-billing").on("click", function () {
-        $("#page-content").load("/billing/subscriptions-billing.html");
-        $('#subscriptions-billing.menu-button').addClass('active');
+    $("#sub").on("click", function () {
+        $("#page-content").load("/modules/sub/sub.html");
+        $('#sub.menu-button').addClass('active');
+
+
+
     });
     $("#entitlements-billing").on("click", function () {
         $("#page-content").load("/billing/entitlements-billing.html");

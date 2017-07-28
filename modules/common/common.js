@@ -1,82 +1,71 @@
-var st = $(this).closest(".step");
-var nextst = $(this).closest(".step").nextAll("div.step:first");
-var list = $(".select-list");
+//COMMMMMONNNN
+
+var $;
+var st;
+
+var container;
+var btedit;
+var btsave;
+
 var help = $(".help-line");
+var reqtext = $("#required");
+var calculate = $("#calculate");
+var list = $(".select-list");
+var totalcount = calculate.closest('div').find(".totalcount");
 
-function saveStep() {
+var txt = $(".txt");
+var checkbox = $(".checkbox");
+var select = $(".select");
 
-    $(this).closest(".step").hide().addClass("done").removeClass("open")
-    $(this).closest(".step").find(".textedit").attr('contenteditable', 'false');
-    $(this).closest(".step").delay(100).show('slide', 200);
-    $(this).closest(".step").find(".req .right").removeClass('req-text');
-
-}
-
-function nextStep() {
-    saveStep();
-    nextst.hide().removeClass("done not-started").addClass("open").find(".textedit").attr('contenteditable', 'true');
-    nextst.delay(100).show('fade', 200);
-    nextst.find(".req .right").addClass('req-text');
-
-    if (st.find(".content").hasClass("cust-payment")) {
-        $(".editable-subscribe").addClass("review-container");
-        $(".step").addClass("review");
-        $(".next").hide();
-
-        $("#new-card").slideUp();
-    }
-    nextst.find(".next").addClass("inactive");
-    showNext();
-}
+//for thefirst step add validation class
+var req_now = $(".req >.txt:visible");
 
 
-function showNext() {
-    if (nextst.find('.req-text').length === 0) //all req fields are filled
-    {
-        alert('boo');
-        $(".required").text("").fadeOut();
-        nextst.find(".next").removeClass("inactive");
-    }
-    if (nextst.find('#calculate').length === 0) {
-        nextst.find(".next").addClass("inactive");
-    }
-}
+// step function
+
+
+
+
+
 
 function resetKey() {
     var help = $(this).closest(".item").find(".help-line");
     help.fadeIn();
-    st.find('.detail-total').slideUp();
+    totalcount.slideUp();
     $(this).removeClass("reqempty");
 }
 
 function inValid() {
+    alert("invaaaal");
+    //st = $(this).closest(obj);
+    var help = $(".help-line:visible");
+    var reqtext = $("#required:visible");
+    var calculate = $("#calculate");
+    var list = $(".select-list:visible");
     help.fadeOut();
     list.delay(100).slideUp();
     if ($(this).hasClass('req-text')) {
 
         if ($(this).text().length === 0) {
-            $(".required").text("Fill all required fileds").fadeIn();
+            reqtext.text("Fill all required fileds").fadeIn();
             $(this).addClass("reqempty");
 
         } else {
             $(this).removeClass("reqempty");
         }
     }
-    $.each((st.find('.req-text')), function () {
+    $.each(req_now, function () {
         if ($(this).text() === '') {
             alert("yup");
-            $(".required").text("Fill all required fileds").fadeIn();
-            $("#calculate").addClass("inactive");
-            st.find(".next").addClass("inactive");
+            reqtext.text("Fill all required fileds").fadeIn();
+            calculate.addClass("inactive");
             return false;
 
         } else {
 
-            $(".required").text("").fadeOut();
-            if (st.find('#calculate').length === 0) {
-                st.find(".next").removeClass("inactive");
-            } else {
-                $("#calculate").removeClass("inactive");
+            reqtext.text("").fadeOut();
+            if (calculate.length !== 0) {
+                calculate.removeClass("inactive");
             }
 
         }
@@ -84,58 +73,87 @@ function inValid() {
 
 }
 
-
+//done
 function selectList() {
     var list = $(".select-list");
+    var select = $(".select");
+
     list.hide();
     //click
-    $(".select").click(function () {
+    select.click(function () {
         $(this).closest("div").find(list).slideToggle();
-        $(".arrow-up, .arrow-dwn").toggleClass("arrow-up arrow-dwn");
+        resetKey();
     });
     //leave the input field
     list.mouseleave(function () {
-        $(".help-line").fadeOut();
+        help.fadeOut();
     });
     //choose the value
     $(".data").click(function () {
         $(this).closest(".dropdown").find(".input-field").html($(this).html());
         if (list.is(":visible")) {
             list.delay(100).slideUp();
-
-            $(this).closest(".step").find(".next").addClass("inactive");
         }
     });
 }
 
-function calculate() {
+function calculateFn() {
 
-    $("#calculate").click(function () {
-        $('#calculate').addClass("inactive");
-        $('.detail-total').delay(200).slideDown();
-        $(this).closest(".step").find(".next").removeClass("inactive");
+    calculate.click(function () {
+        alert(st.className);
+        calculate.addClass("inactive");
+        totalcount.delay(200).slideDown();
         $(this).addClass("inactive");
     });
 }
 
 function checkBox() {
-    $(".imgCheck").click(function () {
+    checkbox.click(function () {
         $(this).toggleClass("enabled");
     });
-    $(".imgCheck").mouseup(function () {
-        if (!$(this).hasClass("enabled")) {
-            $("#billincc").addClass("copied").html($(".address-list").html()).slideDown();
+}
+
+
+//toggle attr in forms
+
+
+
+$.fn.toggleAttr = function (attribute, option1, option2) {
+    return this.each(function () {
+        var $this = $(this);
+        if ($this.attr(attribute) != option1) {
+            $this.attr(attribute, option1);
         } else {
-            $("#billincc").removeClass("copied").html($("#ccaddr").html()).slideDown();
+            $this.attr(attribute, option2);
         }
     });
 }
 
-function selectCard() {
-    var creditcard = $("#my-cards .card");
-    creditcard.click(function () {
+
+function arrowUpDown() {
+    $(".arrow-up, .arrow-dwn").toggleClass("arrow-up arrow-dwn");
+
+}
+
+
+
+function fancySlide(obj) {
+    obj.delay(100).show('slide', 200);
+    var myClass = obj.attr("class");
+    var last_obj = obj.last();
+    var next_obj = obj.nextAll('".' + myClass + '"').first();
+    if (next_obj !== last_obj) {
+        next_obj.delay(100).show('slide', 200);
+    }
+
+}
+
+function selectCard(object) {
+    var ccard = $('"' + object + '.card"');
+
+    ccard.click(function () {
         if ($(this).not('.active')) {
-            creditcard.removeClass("active");
+            ccard.removeClass("active");
             $(this).addClass("active");
         }
     });

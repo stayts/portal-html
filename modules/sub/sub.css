@@ -15,6 +15,14 @@
   border-right: 10px solid transparent;
   border-bottom: 8px solid #ccc;
 }
+.accordion .inactive {
+  background: #eee;
+  color: #eee;
+  pointer-events: none;
+}
+.accordion .inactive .ui-accordion-header-icon {
+  border-color: #eeeeee;
+}
 .accordion .open,
 .accordion .done {
   position: relative;
@@ -44,6 +52,10 @@
   border-bottom: 1px solid whitesmoke;
   margin: auto;
   height: 42px;
+}
+.accordion .acc-title,
+.accordion .acc-head {
+  transition: .5s;
 }
 .accordion .acc-title .number,
 .accordion .acc-head .number {
@@ -80,8 +92,8 @@
   font-weight: lighter;
   flex-shrink: 0;
 }
-.accordion .SKU .textedit:before,
-.accordion .number .textedit:before {
+.accordion .SKU .txt:before,
+.accordion .number .txt:before {
   content: 'SKU-';
   height: 100%;
   background: #b4b7be;
@@ -92,8 +104,8 @@
   margin-right: 5px;
   border-right: 1px solid #009bb3;
 }
-.accordion .done .SKU .textedit:before,
-.accordion .done .number .textedit:before {
+.accordion .done .SKU .txt:before,
+.accordion .done .number .txt:before {
   content: 'SKU-';
   height: 100%;
   background: none;
@@ -104,6 +116,6 @@
   margin-right: 0;
   border-right: none;
 }
-.accordion .number .textedit:before {
+.accordion .number .txt:before {
   content: 'A-';
 }

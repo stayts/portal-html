@@ -1,11 +1,12 @@
-<link rel="stylesheet" href="../modules/new-sub/new-sub.css">
+<script src="/modules/new-sub/new-sub.js"></script>
+<link rel="stylesheet" href="/modules/new-sub/new-sub.css">
 <div class="modal">
-    <div class="editable-subscribe">
+    <div id="sub-create">
         <div class="close material-icons" id="closenew-sub">close</div>
         <div class="h1">
             My Subscription
         </div>
-        <div class="required"></div>
+
         <div id="step1" class="step">
             <div class="h3 ">
                 <div>Details</div>
@@ -18,7 +19,7 @@
                 <div class="detail-values">
                     <div class="item req">
                         <div class="left">Number of seats</div>
-                        <div class="right textedit numbersOnly">1000</div>
+                        <div class="right txt numbersOnly">1000</div>
                         <div class="help-line">Enter the number of seats required. </div>
                     </div>
                     <div class=" item">
@@ -57,20 +58,23 @@
                         </div>
                         <div class="help-line ">Choose how often would you like us to bill you </div>
                     </div>
-                    <button id="calculate">Calculate the price</button>
+
                 </div>
-                <div class="detail-total">
-                    <div class="item  ">
-                        <div class="left">Bill Payment (quarterly billing)</div>
-                        <div class="right ">$1000</div>
-                    </div>
-                    <div class="item  ">
-                        <div class="left">Cost per each user</div>
-                        <div class="dollars right">2,45</div>
-                    </div>
-                    <div class="item taxed">
-                        <div class="left">Due today (not taxed yet)</div>
-                        <div class=" dollars right">1000,00</div>
+                <div class="calculation">
+                    <button id="calculate">Calculate the price</button>
+                    <div class="totalcount">
+                        <div class="item  ">
+                            <div class="left">Bill Payment (quarterly billing)</div>
+                            <div class="right ">$1000</div>
+                        </div>
+                        <div class="item  ">
+                            <div class="left">Cost per each user</div>
+                            <div class="dollars right">2,45</div>
+                        </div>
+                        <div class="item taxed">
+                            <div class="left">Due today (not taxed yet)</div>
+                            <div class=" dollars right">1000,00</div>
+                        </div>
                     </div>
                 </div>
                 <div class="bar"></div>
@@ -92,45 +96,45 @@
                     <div class="multifield">
                         <div class="name item">
                             <div class="left">First Name</div>
-                            <div class="right textedit"></div>
+                            <div class="right txt"></div>
                         </div>
                         <div class=" item">
                             <div class="left">Last Name</div>
-                            <div class="right textedit"></div>
+                            <div class="right txt"></div>
                         </div>
                     </div>
                     <div class="address ">
                         <div class=" item ">
                             <div class="left">Address line 1 </div>
-                            <div class="right textedit"></div>
+                            <div class="right txt"></div>
                         </div>
                         <div class=" item">
                             <div class="left">Address line 2</div>
-                            <div class="right textedit"></div>
+                            <div class="right txt"></div>
                         </div>
                     </div>
                     <div class="multifield">
                         <div class="zip item ">
                             <div class="left">ZIP / Postal code / postcode</div>
-                            <div class="right textedit"></div>
+                            <div class="right txt"></div>
                         </div>
                         <div class=" item">
                             <div class="left">City / town</div>
-                            <div class="right textedit"></div>
+                            <div class="right txt"></div>
                         </div>
                         <div class="state item">
                             <div class="left"> State / Province</div>
-                            <div class="right textedit"></div>
+                            <div class="right txt"></div>
                         </div>
                     </div>
                     <div class="multifield">
                         <div class="item req">
                             <div class="left">Country</div>
-                            <div class="right textedit"></div>
+                            <div class="right txt"></div>
                         </div>
                         <div class="email item req">
                             <div class="left">email</div>
-                            <div class="right textedit"></div>
+                            <div class="right txt"></div>
                         </div>
                     </div>
                 </div>
@@ -199,15 +203,15 @@
                         <div class="multifield">
                             <div class="ccnum item req">
                                 <div class="left">Credit card number</div>
-                                <div class="numbersOnly right textedit">4441 78709 5676 6663</div>
+                                <div class="numbersOnly right txt">4441 78709 5676 6663</div>
                             </div>
                             <div class="ccexp item ">
                                 <div class="left">exp date</div>
-                                <div class="numbersOnly right textedit date">12.01.2017</div>
+                                <div class="numbersOnly right txt date">12.01.2017</div>
                             </div>
                             <div class="ccccv item">
                                 <div class=" left ">CCV</div>
-                                <div class="right textedit numbersOnly">
+                                <div class="right txt numbersOnly">
                                     441</div>
                             </div>
                         </div>
@@ -215,7 +219,7 @@
 
 
                             <div class="checkboxes">
-                                <div class="imgCheck enabled">
+                                <div class="checkbox enabled">
                                     <label>Same as Customer address</label>
                                 </div>
                             </div>
@@ -226,45 +230,45 @@
                         <div class="multifield">
                             <div class=" item">
                                 <div class="left">First Name</div>
-                                <div class="right textedit"></div>
+                                <div class="right txt"></div>
                             </div>
                             <div class=" item">
                                 <div class="left">Last Name</div>
-                                <div class="right textedit"></div>
+                                <div class="right txt"></div>
                             </div>
                         </div>
                         <div class="address ">
                             <div class=" item ">
                                 <div class="left">Address line 1 </div>
-                                <div class="right textedit"></div>
+                                <div class="right txt"></div>
                             </div>
                             <div class=" item">
                                 <div class="left">Address line 2</div>
-                                <div class="right textedit"></div>
+                                <div class="right txt"></div>
                             </div>
                         </div>
                         <div class="multifield">
                             <div class=" item ">
                                 <div class="left">ZIP / Postal code / postcode</div>
-                                <div class="right textedit"></div>
+                                <div class="right txt"></div>
                             </div>
                             <div class=" item">
                                 <div class="left">City / town</div>
-                                <div class="right textedit"></div>
+                                <div class="right txt"></div>
                             </div>
                             <div class=" item">
                                 <div class="left"> State / Province</div>
-                                <div class="right textedit"></div>
+                                <div class="right txt"></div>
                             </div>
                         </div>
                         <div class="multifield">
                             <div class="item req">
                                 <div class="left">Country</div>
-                                <div class="right textedit"></div>
+                                <div class="right txt"></div>
                             </div>
                             <div class="email item req">
                                 <div class="left">email</div>
-                                <div class="right textedit"></div>
+                                <div class="right txt"></div>
                             </div>
                         </div>
                     </div>
@@ -276,4 +280,21 @@
         <button id="step-buy">OK</button>
     </div>
 </div>
-<script src="../modules/new-sub/new-sub.js "></script>
+
+<script>
+    jQuery(document).ready(function($) {
+        //$("#sub-create").text("here");
+        $(".step:first").addClass("open");
+        var container;
+        container = $("#sub-create");
+        container.find(".txt").attr('contenteditable', 'false');
+        container.find(".next").addClass("inactive");
+        var st = container.find(".step:first");
+        st.addClass("open");
+        st.find(".txt").attr('contenteditable', 'true');
+
+
+    });
+
+</script>
+//

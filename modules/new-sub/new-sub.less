@@ -26,7 +26,7 @@
 
 //inputs
 //new subscription
-.editable-subscribe {
+#sub-create {
     width: 1000px;
     position: relative;
     min-height: 100%;
@@ -223,7 +223,7 @@
     }
     .donebtn,
     #new-card,
-    .detail-total {
+    .totalcount {
         display: none
     }
     &.not-started {
@@ -245,7 +245,7 @@
             padding: 10px;
             background: #f5f5f5;
         }
-        .detail-total {
+        .totalcount {
             margin-top: 10px;
             .right,
             .select {
@@ -470,22 +470,6 @@
     position: relative;
 }
 
-.req {
-    .left {
-        &:after {
-            content: "*";
-            color: #aa0000;
-            margin-left: 1px
-        }
-    }
-    .right {
-        &.reqempty {
-            transition: .2s;
-            border-color: red;
-        }
-    }
-}
-
 #billincc {
     &.copied {
         .item {
@@ -547,7 +531,7 @@
     label {
         font-size: 13px;
     }
-    .imgCheck {
+    .checkbox {
         display: flex;
         align-items: center;
         &:before {
@@ -560,7 +544,7 @@
             background: white;
         }
     }
-    .imgCheck.enabled {
+    .checkbox.enabled {
         &:before {
             background-color: #e52149;
             background-image: url('../images/check-white.png');

@@ -457,6 +457,15 @@ body {
   height: auto;
   display: block;
 }
+.item.req .left:after {
+  content: "*";
+  color: #aa0000;
+  margin-left: 1px;
+}
+.item.req .right.reqempty {
+  transition: .2s;
+  border-color: red;
+}
 [contenteditable="true"] {
   overflow: visible;
   background: #ffffff;
@@ -550,7 +559,7 @@ body {
   background: #d5ecf0;
 }
 .inactive {
-  background: lightgrey !important;
-  color: grey !important;
+  background: lightgrey;
+  color: grey;
   pointer-events: none;
 }

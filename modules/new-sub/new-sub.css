@@ -34,7 +34,7 @@
   font-family: arial, sans-serif;
   line-height: normal;
 }
-.editable-subscribe {
+#sub-create {
   width: 1000px;
   position: relative;
   min-height: 100%;
@@ -42,11 +42,11 @@
   transition: .5s;
   background: #ddd;
 }
-.editable-subscribe.review-container #step-buy {
+#sub-create.review-container #step-buy {
   display: block;
   background: red;
 }
-.editable-subscribe .h1 {
+#sub-create .h1 {
   font-weight: normal;
   font-size: 20px;
   background: #9499aa;
@@ -56,18 +56,18 @@
   width: 100%;
   padding: 0 20px;
 }
-.editable-subscribe button {
+#sub-create button {
   cursor: pointer;
   height: 40px;
   margin: auto;
 }
-.editable-subscribe button:hover {
+#sub-create button:hover {
   background: #f9b800;
 }
-.editable-subscribe button#step-buy {
+#sub-create button#step-buy {
   display: none;
 }
-.editable-subscribe .h2 {
+#sub-create .h2 {
   font-size: 27px;
   border-bottom: 1px solid #ccc;
   width: 100%;
@@ -76,7 +76,7 @@
   color: #747988;
   padding: 10px 0 20px 0;
 }
-.editable-subscribe .h4 {
+#sub-create .h4 {
   line-height: 20px;
   margin: 0;
   font-size: 17px;
@@ -86,7 +86,7 @@
   display: flex;
   justify-content: space-between;
 }
-.editable-subscribe .help-line {
+#sub-create .help-line {
   width: calc(100% - 10px);
   position: absolute;
   top: -41px;
@@ -99,7 +99,7 @@
   left: 0;
   display: none;
 }
-.editable-subscribe .required {
+#sub-create .required {
   width: calc(100% - 10px);
   position: absolute;
   top: -41px;
@@ -116,19 +116,19 @@
   left: 300px;
   background: #ffbdbd;
 }
-.editable-subscribe .item {
+#sub-create .item {
   padding: 0 0 10px 0;
 }
-.editable-subscribe .left {
+#sub-create .left {
   width: 100%;
   text-align: center;
   margin: 0;
 }
-.editable-subscribe .right {
+#sub-create .right {
   width: 100%;
   word-break: break-all;
 }
-.editable-subscribe .total {
+#sub-create .total {
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
   margin-top: 5px;
@@ -256,7 +256,7 @@
 }
 .step .donebtn,
 .step #new-card,
-.step .detail-total {
+.step .totalcount {
   display: none;
 }
 .step.not-started {
@@ -277,11 +277,11 @@
   padding: 10px;
   background: #f5f5f5;
 }
-.step.open .detail-total {
+.step.open .totalcount {
   margin-top: 10px;
 }
-.step.open .detail-total .right,
-.step.open .detail-total .select {
+.step.open .totalcount .right,
+.step.open .totalcount .select {
   font-size: 19px;
   text-align: center;
   width: 100%;
@@ -294,17 +294,17 @@
   color: #006676;
   line-height: normal;
 }
-.step.open .detail-total .right .arrow-up,
-.step.open .detail-total .select .arrow-up {
+.step.open .totalcount .right .arrow-up,
+.step.open .totalcount .select .arrow-up {
   display: none;
 }
-.step.open .detail-total .item {
+.step.open .totalcount .item {
   border-bottom: 1px solid #ccc;
 }
-.step.open .detail-total .item:last-of-type {
+.step.open .totalcount .item:last-of-type {
   border: none;
 }
-.step.open .detail-total .left {
+.step.open .totalcount .left {
   font-size: 14px;
   width: 100%;
   text-align: center;
@@ -471,15 +471,6 @@
 .content {
   position: relative;
 }
-.req .left:after {
-  content: "*";
-  color: #aa0000;
-  margin-left: 1px;
-}
-.req .right.reqempty {
-  transition: .2s;
-  border-color: red;
-}
 #billincc.copied .item {
   display: flex;
 }
@@ -534,11 +525,11 @@
 .checkboxes label {
   font-size: 13px;
 }
-.checkboxes .imgCheck {
+.checkboxes .checkbox {
   display: flex;
   align-items: center;
 }
-.checkboxes .imgCheck:before {
+.checkboxes .checkbox:before {
   border: 2px solid #cacaca;
   content: '\00a0';
   width: 15px;
@@ -547,7 +538,7 @@
   margin: 0px 10px;
   background: white;
 }
-.checkboxes .imgCheck.enabled:before {
+.checkboxes .checkbox.enabled:before {
   background-color: #e52149;
   background-image: url('../images/check-white.png');
   background-size: 13px;

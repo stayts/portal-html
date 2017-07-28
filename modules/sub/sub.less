@@ -1,6 +1,14 @@
 @import (reference) "../modal/modal.less";
 @import (reference) "../accordion/accordion.less"; //subscriptions
 .accordion {
+    .inactive {
+        background: #eee;
+        color: #eee;
+        pointer-events: none;
+        .ui-accordion-header-icon {
+            border-color: #eee
+        }
+    }
     .open,
     .done {
         position: relative;
@@ -28,6 +36,7 @@
     }
     .acc-title,
     .acc-head {
+        transition: .5s;
         .number {
             width: 70px
         }
@@ -57,8 +66,8 @@
         font-weight: lighter;
         flex-shrink: 0;
     }
-    .SKU .textedit,
-    .number .textedit {
+    .SKU .txt,
+    .number .txt {
         &:before {
             content: 'SKU-';
             height: 100%;
@@ -72,8 +81,8 @@
         }
     }
     .done {
-        .SKU .textedit,
-        .number .textedit {
+        .SKU .txt,
+        .number .txt {
             &:before {
                 content: 'SKU-';
                 height: 100%;
@@ -87,7 +96,7 @@
             }
         }
     }
-    .number .textedit {
+    .number .txt {
         &:before {
             content: 'A-';
         }

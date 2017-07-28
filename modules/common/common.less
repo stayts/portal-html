@@ -249,7 +249,25 @@ body {
 .item {
     height: auto;
     display: block;
-} //accordion
+    &.req {
+        //background: red;
+        .left {
+            &:after {
+                content: "*";
+                color: #aa0000;
+                margin-left: 1px
+            }
+        }
+        .right {
+            &.reqempty {
+                transition: .2s;
+                border-color: red;
+            }
+        }
+    }
+}
+
+//accordion
 //editable styles
 [contenteditable="true"] {
     .select;
@@ -333,7 +351,7 @@ body {
 }
 
 .inactive {
-    background: lightgrey !important;
-    color: grey !important;
+    background: lightgrey;
+    color: grey;
     pointer-events: none;
 }
